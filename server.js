@@ -29,15 +29,14 @@ app.use(express.static('./public'));
 app.get('/api/v1/users/:user_id', (req, res)=>{
   let url = 'https://accounts.spotify.com/api/token'
   superagent.post(url)
-    .send("grant_type=client_credentials")
+    .send('grant_type=client_credentials')
     .auth(SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET)
-    .then(result =>{
+    .then(result => result.body.access_token)
+    .then(access_token =>
       superagent.get(`https://api.spotify.com/v1/users/${req.params.user_id}`)
-        .set("Authorization",`Bearer ${result.body.access_token}`)
-        .then(result2 =>
-          res.send(result2.body)
-        )
-    }
+        .set('Authorization', `Bearer ${access_token}`))
+    .then(result =>
+      res.send(result.body)
     );
 })
 
