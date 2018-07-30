@@ -15,6 +15,10 @@ const PORT = process.env.PORT || 3000;
 
 
 // API Endpoints
-app.get('/test', (req, res) => res.send('hello world'));
+app.get('/', (req, res) => {
+  res.sendFile('public/index.html', { root: '.'});
+});
+
+app.use(express.static('./public'));
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
