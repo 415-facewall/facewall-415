@@ -1,8 +1,28 @@
-.container {
-  display: flex;
-  width: 900px;
-  margin: auto;
-  /* border: 1px dashed blue; */
-  justify-content: space-between;
-  flex-wrap: wrap;
+.filter-search {
+  background: red;
+}
+
+.employee-view {
+  background: yellow;
+}
+
+.employee {
+  width: 200px;
+  margin: 0 3px 12px 0;
+  background: #EDF2F4;
+  border: 1px solid #03312E;
+  padding: 5px;
+}
+
+.employee img {
+  width: 100%;
+}
+
+.employee figcaption {
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.employee p {
+  margin: 5px;
 }

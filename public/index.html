@@ -1,75 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>The 415 Facewall</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/vendor/styles/normalize.css">
-    <link rel="stylesheet" href="/vendor/styles/icons.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Roboto">
-    <link rel="stylesheet" href="/styles/base.css">
-    <link rel="stylesheet" href="/styles/layout.css">
-    <link rel="stylesheet" href="/styles/modules.css">
 
-    <script id="handlebars-template" type="text/x-handlebars-template">
-      
-    </script>
-    
-    <script id="spotify-template" type="text/x-handlebars-template">
-      <tr>
-        <td>{{title}}</td>
-        <td>{{artist}}</td>
-        <td>{{album}}</td>
-        <td>{{genre}}</td>
-      </tr>
-    </script>
+<head>
+  <meta charset="UTF-8">
+  <title>The 415 Facewall</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/vendor/styles/normalize.css">
+  <link rel="stylesheet" href="/vendor/styles/icons.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato|Roboto">
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/layout.css">
+  <link rel="stylesheet" href="/styles/modules.css">
 
-    
-    <script id="employee-list-template" type="text/x-handlebars-template">
-      <figure data-company="{{company}}" data-last-name="{{last_name}}">
-        <img src="{{image_url}}" alt="{{name}}">
+  <script id="spotify-template" type="text/x-handlebars-template">
+    <tr>
+      <td>{{title}}</td>
+      <td>{{artist}}</td>
+      <td>{{album}}</td>
+      <td>{{genre}}</td>
+    </tr>
+  </script>
+
+
+  <script id="employee-list-template" type="text/x-handlebars-template">
+    <figure data-company="{{company}}" data-last-name="{{last_name}}">
+      <img src="{{image_url}}" alt="{{name}}">
+      <figcaption>
+        <p>{{first_name}} {{last_name}}</p>
+        <p>{{company}}-{{job_title}}</p>
+        <p class="detail-button">
+          <a href="/employee/{{employee_id}}">Details</a>
+        </p>
+      </figcaption>
+    </figure>
+  </script>
+</head>
+
+<body>
+  <header class="header container">
+    <h1 class="logo">
+      <a href="/">The 415 Facewall</a>
+    </h1>
+    <nav class="top-nav">
+      <div class="hamburger-menu">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="top-nav-items hidden">
+        <li>
+          <a href="/">People</a>
+        </li>
+        <li>
+          <a href="/about">About</a>
+        </li>
+        <li>
+          <a href="/login">Login</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <main class="main-content">
+    <aside class="filter-search">
+      <h3>Filter</h3>
+      <h3>Search</h3>
+    </aside>
+    <section class="employee-view container">
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
         <figcaption>
-          <p>{{first_name}} {{last_name}}</p>
-          <p>{{company}}-{{job_title}}</p>
-          <p class="detail-button"><a href="/employee/{{employee_id}}">Details</a></p>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
         </figcaption>
       </figure>
-    </script>
-  </head>
-  <body>
-    <header class="header container">
-      <h1 class="logo"><a href="/">The 415 Facewall</a></h1>
-      <nav class="top-nav">
-          <div class="hamburger-menu">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <ul class="top-nav-items hidden">
-            <li><a href="/">People</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/login">Login</a></li>
-          </ul>
-        </nav>
-    </header>
-    
-    
-    <main>
-      <aside></aside>
-      <section class="employee-view container">
-      </section>
-    </main>
-    
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
+        <figcaption>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
+        </figcaption>
+      </figure>
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
+        <figcaption>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
+        </figcaption>
+      </figure>
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
+        <figcaption>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
+        </figcaption>
+      </figure>
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
+        <figcaption>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
+        </figcaption>
+      </figure>
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
+        <figcaption>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
+        </figcaption>
+      </figure>
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
+        <figcaption>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
+        </figcaption>
+      </figure>
+      <figure class="employee" data-company="Purrs Alot" data-last-name="Kitten">
+        <img src="https://placekitten.com/200/200" alt="Kitten">
+        <figcaption>
+          <p>Michael Kitten</p>
+          <p>Purrs Alot - Sleep</p>
+          <p class="detail-button">
+            <a href="/employee/1">Details</a>
+          </p>
+        </figcaption>
+      </figure>
+    </section>
+  </main>
 
 
 
-    <script src="/vendor/scripts/jquery-3.3.1.min.js"></script>
-    <script src="/vendor/scripts/page.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-    <script src="/scripts/index.js"></script>
-    <script src="/scripts/models/filter.js"></script>
-    <script src="/scripts/models/person.js"></script>
-    <script src="/scripts/views/person-view.js"></script>
-    <script src="/scripts/controller/routes.js"></script>    
-  </body>
+
+  <script src="/vendor/scripts/jquery-3.3.1.min.js"></script>
+  <script src="/vendor/scripts/page.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="/scripts/index.js"></script>
+  <script src="/scripts/models/filter.js"></script>
+  <script src="/scripts/models/person.js"></script>
+  <script src="/scripts/views/person-view.js"></script>
+  <script src="/scripts/controller/routes.js"></script>
+</body>
+
 </html>
