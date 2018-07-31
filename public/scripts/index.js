@@ -12,6 +12,4 @@ var app = app || {};
     apiUrl: module.isProduction ? productionApiUrl : developmentApiUrl,
   };
 
-  console.log(module.ENVIRONMENT);
-
 })(app);

@@ -3,14 +3,14 @@
 // Application dependencies
 const express = require('express');
 const superagent = require('superagent');
+const requestProxy = require('express-request-proxy');
 
 // Application Setup
 const app = express();
-const PORT = process.env.PORT || 3000;
-const TOKEN = process.env.TOKEN;
+const PORT = process.env.PORT;
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
-
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 // Database Setup
 
@@ -19,14 +19,14 @@ const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
 
 
 // API Endpoints
-app.get('/', (req, res) => {
-  res.sendFile('public/index.html', { root: '.'});
-});
-
 app.use(express.static('./public'));
 
+app.get('/', (req, res) => {
+  res.sendFile('index.html');
+});
+
 //Spotify API Endpoints
-app.get('/api/v1/users/:user_id', (req, res)=>{
+app.get('/api/v1/users/:user_id', (req, res) => {
   let url = 'https://accounts.spotify.com/api/token'
   superagent.post(url)
     .send('grant_type=client_credentials')
@@ -34,11 +34,23 @@ app.get('/api/v1/users/:user_id', (req, res)=>{
     .then(result => result.body.access_token)
     .then(access_token =>
       superagent.get(`https://api.spotify.com/v1/users/${req.params.user_id}`)
-        .set('Authorization', `Bearer ${access_token}`))
+      .set('Authorization', `Bearer ${access_token}`))
     .then(result =>
       res.send(result.body)
     );
 })
 
+app.get('/api/github/users/:id', (req, res) => {
+  let user = req.params.id;
+  let proxy = requestProxy({
+    url: `https://api.github.com/users/${user}`,
+    headers: {
+      Authorization: `token ${GITHUB_TOKEN}`
+    }
+  });
+  proxy(req, res);
+});
 
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+app.listen(PORT, () => {
+  return
+});
