@@ -11,13 +11,29 @@
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
     
-    <script id="handlebars-template" type="text/x-handlebars-template">
-      
+    <script id="employee-list-template" type="text/x-handlebars-template">
+      <figure data-company="{{company}}" data-last-name="{{last_name}}">
+        <img src="{{image_url}}" alt="{{name}}">
+        <figcaption>
+          <p>{{first_name}} {{last_name}}</p>
+          <p>{{company}}-{{job_title}}</p>
+          <p class="detail-button"><a href="/employee/{{employee_id}}">Details</a></p>
+        </figcaption>
+      </figure>
     </script>
+
   </head>
   <body>
     
     
+    <main>
+      <aside></aside>
+      <section class="employee-view container">
+      </section>
+    </main>
+    
+
+
 
     <script src="/vendor/scripts/jquery-3.3.1.min.js"></script>
     <script src="/vendor/scripts/page.js"></script>

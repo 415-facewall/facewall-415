@@ -1,0 +1,20 @@
+figure {
+  width: 200px;
+  margin: 5px;
+  border: 1px solid black;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+figure img {
+  width: 100%;
+}
+
+figure figcaption {
+  text-align: center;
+  padding: 8px 4px; 
+}
+
+figure p {
+  margin: 5px;
+}
