@@ -26,7 +26,7 @@ var app = app || {};
   };
 
   
- })(app); //This closes the function module.
+})(app); //This closes the function module.
 
 $(document).ready(function() {
   $('.hamburger-menu').on('mouseenter', function(){
