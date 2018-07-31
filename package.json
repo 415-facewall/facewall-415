@@ -14,6 +14,7 @@
   "author": "Craig Barkley, Nathan Cashman, Marc Hauschildt, Dylan Schroeder",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-request-proxy": "^2.2.0",
     "pg": "^6.1.2",
