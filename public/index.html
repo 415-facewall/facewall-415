@@ -10,6 +10,20 @@
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/layout.css">
     <link rel="stylesheet" href="/styles/modules.css">
+
+    <script id="handlebars-template" type="text/x-handlebars-template">
+      
+    </script>
+    
+    <script id="spotify-template" type="text/x-handlebars-template">
+      <tr>
+        <td>{{title}}</td>
+        <td>{{artist}}</td>
+        <td>{{album}}</td>
+        <td>{{genre}}</td>
+      </tr>
+    </script>
+
     
     <script id="employee-list-template" type="text/x-handlebars-template">
       <figure data-company="{{company}}" data-last-name="{{last_name}}">
@@ -21,7 +35,6 @@
         </figcaption>
       </figure>
     </script>
-
   </head>
   <body>
     <header class="header container">

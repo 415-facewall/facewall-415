@@ -3,6 +3,8 @@
 var app = app || {};
 
 (function (module) {
+  
+  
   let productionApiUrl = 'https://facewall-415.herokuapp.com';
   let developmentApiUrl = 'http://localhost:3000';
 
@@ -12,7 +14,19 @@ var app = app || {};
     apiUrl: module.isProduction ? productionApiUrl : developmentApiUrl,
   };
 
-})(app);
+
+  module.showOnly = (selector) => {
+    $('.container').hide();
+    $(selector).show();
+  };
+
+  module.render = (templateId, data) => {
+    let template = Handlebars.compile($(`#${templateId}`).text());
+    return template(data);
+  };
+
+  
+ })(app); //This closes the function module.
 
 $(document).ready(function() {
   $('.hamburger-menu').on('mouseenter', function(){
@@ -25,3 +39,4 @@ $(document).ready(function() {
     $(this).addClass('hidden');
   });
 });
+
