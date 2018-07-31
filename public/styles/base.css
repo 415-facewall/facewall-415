@@ -1,0 +1,40 @@
+ /*
+  * #03312E - blackish
+  * #037171 - dark greenish blue
+  * #009F93 - medium greenish blue
+  * #00B9AE - light greenish blue
+  * #02C3BD - lightest greenish blue
+  * #EDF2F4 - whiteish
+  * #D90429 - redish
+  */
+
+ html {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+
+ *,
+ *:before,
+ *:after {
+   -webkit-box-sizing: inherit;
+   -moz-box-sizing: inherit;
+   box-sizing: inherit;
+ }
+
+ body {
+   background-color: #EDF2F4;
+   color: #03312E;
+   font-size: 14px;
+   font-family: "Roboto", sans-serif;
+   line-height: 1.4;
+ }
+
+ .container {
+   margin: 0 auto;
+   padding: 10px 20px;
+ }
+
+ .hidden {
+   display: none;
+ }
