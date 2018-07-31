@@ -12,4 +12,14 @@ var app = app || {};
     apiUrl: module.isProduction ? productionApiUrl : developmentApiUrl,
   };
 
+  module.showOnly = (selector) => {
+    $('.container').hide();
+    $(selector).show();
+  };
+
+  module.render = (templateId, data) => {
+    let template = Handlebars.compile($(`#${templateId}`).text());
+    return template(data);
+  };
+
 })(app);
