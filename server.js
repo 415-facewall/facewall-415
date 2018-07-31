@@ -5,10 +5,13 @@ const express = require('express');
 const superagent = require('superagent');
 const requestProxy = require('express-request-proxy');
 const pg = require('pg');
+const cors = require('cors');
 
 // Application Setup
+
 const app = express();
 const PORT = process.env.PORT;
+app.use(cors());
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
 const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
@@ -41,11 +44,9 @@ app.get('/api/v1/employee',(req, res, next)=>{
 
 
 // API Endpoints
+
 app.use(express.static('./public'));
 
-app.get('/', (req, res) => {
-  res.sendFile('index.html');
-});
 
 //Spotify API Endpoints
 app.get('/api/v1/users/:user_id', (req, res) => {

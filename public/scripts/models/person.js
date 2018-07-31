@@ -7,7 +7,7 @@ var app = app || {};
 
   function errorCallback(err){
     console.error(err);
-    module.errorView.initErrorPage(err);
+    app.errorView.initErrorPage(err);
   }
 
   function Person(personInfo){
@@ -21,13 +21,13 @@ var app = app || {};
   Person.all = [];
   Person.loadAll = rows => Person.all = rows.map(person => new Person(person));
   Person.fetchAll = callback =>
-    $.get(`${app.ENVIRONMENT.apiUrl}/`)
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee`)
       .then(Person.loadAll)
       .then(callback)
       .catch(errorCallback);
 
   Person.fetchOne = (person_id, callback) =>
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/${person_id}`)
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${person_id}`)
       .then(results => callback(new Person(results)))
       .catch(errorCallback);
 })(app)
