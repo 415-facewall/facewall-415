@@ -27,3 +27,8 @@
     font-family: "Roboto", sans-serif;
     line-height: 1.4;
   }
+
+  .container {
+    margin: 0 auto;
+    padding: 10px 20px;
+  }
