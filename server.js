@@ -3,12 +3,14 @@
 // Application dependencies
 const express = require('express');
 const superagent = require('superagent');
+const requestProxy = require('express-request-proxy');
 
 // Application Setup
 const app = express();
 const PORT = process.env.PORT;
 const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET
+const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
 // Database Setup
 
@@ -37,6 +39,17 @@ app.get('/api/v1/users/:user_id', (req, res) => {
       res.send(result.body)
     );
 })
+
+app.get('/api/github/users/:id', (req, res) => {
+  let user = req.params.id;
+  let proxy = requestProxy({
+    url: `https://api.github.com/users/${user}`,
+    headers: {
+      Authorization: `token ${GITHUB_TOKEN}`
+    }
+  });
+  proxy(req, res);
+});
 
 app.listen(PORT, () => {
   return
