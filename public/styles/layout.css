@@ -22,7 +22,6 @@
 
 .top-nav {
   float: right;
-  background: yellow;
   height: 55px;
   padding-top: 12px;
 }
@@ -51,4 +50,15 @@
 .top-nav-items a:hover {
   background: #009F93;
   color: #EDF2F4;
+}
+
+.hamburger-menu {
+  width: 40px;
+}
+
+.hamburger-menu div {
+  height:6px;
+  background-color: #03312E;
+  margin-bottom: 6px;
+  border-radius: 4px;
 }

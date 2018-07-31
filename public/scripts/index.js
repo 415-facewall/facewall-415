@@ -13,3 +13,15 @@ var app = app || {};
   };
 
 })(app);
+
+$(document).ready(function() {
+  $('.hamburger-menu').on('mouseenter', function(){
+    $('.top-nav-items').removeClass('hidden');
+  });
+  $('.hamburger-menu').on('click', function(){
+    $('.top-nav-items').toggleClass('hidden');
+  });
+  $('.top-nav-items').on('mouseleave', function() {
+    $(this).addClass('hidden');
+  });
+});
