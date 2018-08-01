@@ -38,14 +38,14 @@
   </script>
 
   <script id="employee-list-template" type="text/x-handlebars-template">
-    <figure class="employee" data-company="{{this.name}}" data-last-name="{{this.last_name}}">
-      <img src="{{locateImage this.img_url}}" alt="{{this.first_name}} {{this.last_name}}">
+    <figure class="employee" data-company="{{name}}" data-last-name="{{last_name}}">
+      <img src="{{locateImage img_url}}" alt="{{first_name}} {{last_name}}">
       <figcaption>
-        <p>{{this.first_name}} {{this.last_name}}</p>
-        <p>{{this.name}} - {{this.job_title}}</p>
-        <p><a href="mailto:{{this.email}}">E-mail</a> | <a href="https://github.com/{{this.github_profile}}">GitHub</a></p>
+        <p>{{first_name}} {{last_name}}</p>
+        <p>{{name}} - {{job_title}}</p>
+        <p>{{{hasEmail email}}} {{{hasGithub github_profile}}}</p>
         <p class="detail-button">
-          <a href="/employee/{this.employee_id}}">Details</a>
+          <a href="/employee/{{employee_id}}">Details</a>
         </p>
       </figcaption>
     </figure>
