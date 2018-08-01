@@ -13,10 +13,9 @@
 
   <script id="spotify-template" type="text/x-handlebars-template">
     <tr>
-      <td>{{title}}</td>
-      <td>{{artist}}</td>
-      <td>{{album}}</td>
-      <td>{{genre}}</td>
+      <td>{{name}}</td>
+      <td>{{artists.0.name}}</td>
+      <td>{{album.name}}</td>
     </tr>
   </script>
   
@@ -25,7 +24,17 @@
     <h3>{{first_name}} {{last_name}}</h3>
     <h4>{{name}}-{{job_title}}</h4>
     <a href='https://github.com/{{github_profile}}'class='icon-github'></a>
-    <a href='/users/{{spotify_id}}'>Connect Spotify</a>
+    <a href='/employee/{{employee_id}}/raikenzera'>Connect Spotify</a>
+    <table>
+      <thead>
+        <td>Title</td>
+        <td>Artist</td>
+        <td>Album</td>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
   </script>
 
   <script id="employee-list-template" type="text/x-handlebars-template">
@@ -90,6 +99,7 @@
   <script src="/scripts/index.js"></script>
   <script src="/scripts/models/filter.js"></script>
   <script src="/scripts/models/person.js"></script>
+  <script src="/scripts/models/track.js"></script>
   <script src="/scripts/views/person-view.js"></script>
   <script src='/scripts/views/error-view.js'></script>
   <script src="/scripts/controller/routes.js"></script>    

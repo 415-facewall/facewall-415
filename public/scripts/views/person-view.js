@@ -18,4 +18,10 @@ var app = app || {};
     $('.detail-view').fadeIn();
     $('#detail-overlay').append(person.toDetailHtml());
   }
+
+  personView.initTrackView = (person) =>{
+    personView.initIndexPage();
+    personView.initDetailView(person);
+    app.Track.all.forEach(track => $('#detail-overlay tbody').append(track.toTrackHtml()));
+  }
 })(app)
