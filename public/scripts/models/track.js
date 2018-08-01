@@ -23,7 +23,7 @@ var app = app || {};
   Track.fetchPlaylists = (user_id, employee_id, callback) => 
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${employee_id}/${user_id}`)
       .then(Track.loadAll)
-      .then(()=> callback(app.Person.all[employee_id-1]))
+      .then(()=> app.Person.fetchOne(employee_id, callback))
       .catch(errorCallback);
 
 })(app)
