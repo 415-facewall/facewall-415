@@ -1,8 +1,111 @@
-.container {
-  display: flex;
-  width: 900px;
-  margin: auto;
-  /* border: 1px dashed blue; */
-  justify-content: space-between;
-  flex-wrap: wrap;
+.filter-search {
+  background-color: #EDF2F4;;
+  padding: 1%;
+}
+
+.filter-search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.filter-search h3 {
+  margin: 0;
+}
+
+.filters {
+  float: left;
+}
+
+.search {
+  float: right;
+}
+
+.employee {
+  float: left;
+  width: 47%;
+  margin: 2% 0 0 2%;
+  background: #fff;
+  border: 1px solid #03312E;
+  padding: 1%;
+}
+
+.employee:last-of-type {
+  margin-bottom: 2%;
+}
+
+.employee img {
+  width: 100%;
+}
+
+.employee figcaption {
+  text-align: center;
+  padding: 1%;
+}
+
+.employee p {
+  line-height: 0.25;
+}
+
+@media screen and (min-width: 600px) {
+  .employee {
+    width: 31%;
+    margin: 1.75% 0 0 1.75%;
+  }
+  .employee:last-of-type {
+    margin-bottom: 1.75%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .employee {
+    width: 23.125%;
+    margin: 1.5% 0 0 1.5%;
+  }
+  .employee:last-of-type {
+    margin-bottom: 1.5%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .filter-search {
+    float: left;
+    width: 23.4375%;
+    margin: 1.25% 0 1.25% 1.25%;
+  }
+  .filters {
+    float: none;
+    width: 100%;
+  }
+  .search {
+    float: none;
+    width: 100%;
+  }
+  .employee-view {
+    margin-left: 24.6875%
+  }
+  .employee {
+    width: 31.33333%;
+    margin: 1.5% 0 0 1.5%
+  }
+  .employee:last-of-type {
+    margin-bottom: 1.5%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .filter-search {
+    width: 18.8%;
+    margin: 1% 0 1% 1%;
+  }
+  .employee-view {
+    margin-left: 19.8%
+  }
+  .employee {
+    width: 23.4375%;
+    margin: 1.25% 0 0 1.25%
+  }
+  .employee:last-of-type {
+    margin-bottom: 1.25%;
+  }
 }
