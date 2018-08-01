@@ -22,8 +22,14 @@
    box-sizing: inherit;
  }
 
+ .clearfix::after {
+   content: "";
+   clear: both;
+   display: table;
+ }
+
  body {
-   background-color: #EDF2F4;
+   background-color: #FFF;
    color: #03312E;
    font-size: 14px;
    font-family: "Roboto", sans-serif;
@@ -32,10 +38,7 @@
 
  .container {
    margin: 0 auto;
-   padding: 10px 20px;
-   display: flex;
-   justify-content: space-between;
-   flex-wrap: wrap;
+   padding: 0 10px;
  }
 
  .hidden {
