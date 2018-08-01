@@ -39,10 +39,12 @@
 
   <script id="employee-list-template" type="text/x-handlebars-template">
     <figure class="employee" data-company="{{name}}" data-last-name="{{last_name}}">
-      <img src="{{locateImage img_url}}" alt="{{first_name}} {{last_name}}">
+      <div class="employee-photo" style="background-image: url({{locateImage img_url}});"></div>
       <figcaption>
         <p>{{first_name}} {{last_name}}</p>
-        <p>{{name}} - {{job_title}}</p>
+        {{#each company_role}}
+          <p>{{this}}</p>
+        {{/each}}
         <p>{{{hasEmail email}}} {{{hasGithub github_profile}}}</p>
         <p class="detail-button">
           <a href="/employee/{{employee_id}}">Details</a>
