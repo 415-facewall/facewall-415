@@ -5,8 +5,8 @@ page('/'
 
 );
 
-page('/:person_id'
-  , ctx => app.Person.fetchOne(ctx.params.person_id, app.personView.initDetailView)
+page('/employee/:employee_id'
+  , ctx => app.Person.fetchOne(ctx.params.employee_id, app.personView.initDetailView)
 );
 
 page();
