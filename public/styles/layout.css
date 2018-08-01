@@ -69,3 +69,48 @@
   margin-bottom: 6px;
   border-radius: 4px;
 }
+
+.detail-view{
+  display: none;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0, .8);
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+#detail-overlay{
+  height: 75%;
+  width: 75%;
+  background: #D90429;
+  position: fixed;
+  z-index: 3;
+  top: 12.5%;
+  right: 12.5%;
+}
+
+.detail-view img{
+  margin: 5% 5% 0;
+  float: left;
+}
+
+.connectify{
+  margin: 0 10px;
+  float: left;
+  clear: both;
+}
+
+.detail-view table{
+  display: block;
+  height: 200px;
+  overflow-y: scroll;
+  margin: 0 10px;
+  float: left;
+  clear: both;
+  text-align: center;
+}
+
+.detail-view td{
+  border: .5px solid #ccc;
+}
