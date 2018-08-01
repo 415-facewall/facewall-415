@@ -17,8 +17,7 @@ var app = app || {};
     this.img_url = personInfo.img_url;
     this.email = personInfo.email;
     this.github_profile = personInfo.github_profile;
-    this.companies = [personInfo.name];
-    this.roles = [personInfo.job_title];
+    this.company_role = [personInfo.job_title + ' at ' + personInfo.name];
   }
 
   module.getPersonArray = function () {
@@ -38,15 +37,13 @@ var app = app || {};
 
   Person.loadAll = function (rows) {
     rows.forEach(row => {
-      let foundPerson = Person.all.find(function(person){
+      let foundPerson = Person.all.find(function (person) {
         return person.employee_id === row.employee_id;
       });
-      if(!foundPerson) {
+      if (!foundPerson) {
         Person.all.push(new Person(row));
-      }
-      else {
-        foundPerson.companies.push(row.name);
-        foundPerson.roles.push(row.job_title);
+      } else {
+        foundPerson.company_role.push(row.job_title + ' at ' + row.name);
       }
     });
   }
