@@ -18,6 +18,11 @@ var app = app || {};
     return app.render('employee-list-template', this)
   }
 
+  Person.prototype.toDetailHtml = function(){
+    return app.render('detail-overlay-template', this);
+  }
+  
+
   Person.all = [];
   Person.loadAll = rows => Person.all = rows.map(person => new Person(person));
   Person.fetchAll = callback =>
@@ -26,8 +31,9 @@ var app = app || {};
       .then(callback)
       .catch(errorCallback);
 
-  Person.fetchOne = (person_id, callback) =>
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${person_id}`)
-      .then(results => callback(new Person(results)))
+  Person.fetchOne = (employee_id, callback) =>
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${employee_id}`)
+      .then(Person.loadAll)
+      .then(() => callback(Person.all[employee_id-1]))
       .catch(errorCallback);
 })(app)

@@ -21,16 +21,16 @@
   </script>
   
   <script id="detail-overlay-template" type="text/x-handlebars-template">
-    <img src='{{img_url}}'>
+    <img src='/images/people/{{img_url}}'>
     <h3>{{first_name}} {{last_name}}</h3>
     <h4>{{name}}-{{job_title}}</h4>
-    <a href='{{github_url}}'class='.icon-github'></a>
+    <a href='https://github.com/{{github_profile}}'class='icon-github'></a>
     <a href='/users/{{spotify_id}}'>Connect Spotify</a>
   </script>
 
   <script id="employee-list-template" type="text/x-handlebars-template">
     <figure class="employee" data-company="{{name}}" data-last-name="{{last_name}}">
-      <img src="images/people/{{img_url}}" alt="{{first_name}} {{last_name}}">
+      <img src="/images/people/{{img_url}}" alt="{{first_name}} {{last_name}}">
       <figcaption>
         <p>{{first_name}} {{last_name}}</p>
         <p>{{name}} - {{job_title}}</p>

@@ -12,8 +12,10 @@ var app = app || {};
   }
 
   personView.initDetailView = (person) =>{
+    personView.initIndexPage();
     $('#detail-overlay').empty();
+    $('.error-view').hide();
     $('.detail-view').fadeIn();
-    $('#detail-overlay').append(person.toHtml());
+    $('#detail-overlay').append(person.toDetailHtml());
   }
 })(app)

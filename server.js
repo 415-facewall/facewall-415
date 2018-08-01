@@ -38,6 +38,21 @@ app.get('/api/v1/employee',(req, res, next)=>{
     .catch(next);
 });
 
+app.get('/api/v1/employee/:employee_id', (req, res, next)=>{
+  console.log('loading');
+  let SQL = `SELECT e.employee_id, e.first_name, e.last_name, e.img_url, e.email, e.github_profile, c.name, r.job_title
+  FROM employee_role r
+  INNER JOIN employee e ON e.employee_id = r.employee_id
+  INNER JOIN company c ON c.company_id = r.company_id WHERE e.employee_id=${req.params.employee_id}`;
+
+  client.query(SQL)
+    .then(result =>{
+      console.log(`The result:${result.rows}`);
+      res.send(result.rows)
+    })
+    .catch(next);
+})
+
 // Application Middleware
 
 
@@ -80,6 +95,10 @@ app.get('/api/github/users/:id', (req, res) => {
   });
   proxy(req, res);
 });
+
+app.get('*', (req, res)=> {
+  res.sendFile('index.html', {root: './public'});
+})
 
 app.listen(PORT, () => {
   console.log(`Listening on PORT ${PORT}`);
