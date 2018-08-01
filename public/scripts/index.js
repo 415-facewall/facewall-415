@@ -22,7 +22,7 @@ var app = app || {};
 
   module.render = (templateId, data) => {
     Handlebars.registerHelper('locateImage', img_url => {
-      return img_url.substring(0, 4) === 'http' ? img_url : 'images/people/' + img_url;
+      return img_url.substring(0, 4) === 'http' ? img_url : '/images/people/' + img_url;
     });
     Handlebars.registerHelper('hasEmail', email =>{
       return !email ? '' : `<a href="mailto:${email}">E-mail</a>`
