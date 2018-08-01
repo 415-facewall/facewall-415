@@ -6,9 +6,9 @@ var app = app || {};
   module.personView = personView;
 
   personView.initIndexPage = () => {
-    $('#employees').empty();
+    $('.employee-view').empty();
     app.showOnly('.employee-view');
-    app.Person.all.forEach(person => $('#employees').append(person.toHtml()));
+    app.Person.all.forEach(person => $('.employee-view').append(person.toHtml()));
   }
 
   personView.initDetailView = (person) =>{
