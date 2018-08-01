@@ -1,0 +1,383 @@
+
+/* creat tables */
+/* ---------------------- */
+
+CREATE TABLE IF NOT EXISTS employee ( employee_id SERIAL PRIMARY KEY, first_name VARCHAR(255) NOT NULL, last_name VARCHAR(255) NOT NULL, city VARCHAR(255), img_url VARCHAR(255), email VARCHAR(255), github_profile VARCHAR(255), spotify_profile VARCHAR(255), will_carpool BOOLEAN NOT NULL, address VARCHAR(255) );
+
+CREATE TABLE IF NOT EXISTS company( company_id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, description VARCHAR(2000), website VARCHAR(255), date_founded VARCHAR(255) );
+
+CREATE TABLE IF NOT EXISTS employee_role(
+employee_id INTEGER REFERENCES employee(employee_id), company_id INTEGER REFERENCES company(company_id), date_started VARCHAR(255), date_ended VARCHAR(255), job_title VARCHAR(255) NOT NULL );
+
+/* add companys to company table */
+/* ----------------------------- */
+
+INSERT INTO company(name, description, website, date_founded) VALUES('Tektechnologies', 'Internet Products company specializing in IoT and Web Applications', 'www.tektechnologies.com', '2012');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('DeltaV Code School', 'Iowa''s premier coding school', 'https://deltavcodeschool.com', '2017');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('NewBoCo', 'The New Bohemian Innovation Collaborative, NewBoCo is built to help grow ideas, from Iowa. You may or may not be from Iowa, but you can get your start here and impact the entire world. Within Iowa, NewBoCo will strengthen the state''s entrepreneurs, creatives, and technologists that are making big ideas happen. While headquartered in Cedar Rapids, our impact will be felt statewide. A win for Iowa City or Des Moines or Sioux City is a win for us too', 'https://newbo.co/', '2008');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('Geonetric', 'Geonetric helps healthcare brands thrive through effective marketing and distinctive websites. As a marketing agency and software developer with deep technical and creative expertise, Geonetric provides hospitals, health systems, and medical groups with a healthcare-specific content management system, hosting, marketing strategies and creative services optimized for the unique needs of the healthcare industry', 'https://www.geonetric.com', '1999');
+ 
+INSERT INTO company(name, description, website, date_founded)VALUES('McNary Marketing and Design LLC', 'McNary Marketing and Design LLC is a Marketing Technology firm, which helps businesses discover and implement the best marketing and sales technology, so they can sell more while doing less.','https://mcnarymarketing.com/', '2013');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('Converge', 'Converge is a bold, indispensable partner for colleges and universities. Our thought-provoking digital strategies connect the next generation of learners with right-fit programs', 'https://convergeconsulting.org/', '2016');
+  
+INSERT INTO company(name, description, website, date_founded)VALUES('Quick Action Accounting', 'Quick Action Accounting is your local authority for QuickBooks products, small business financial management, and consulting services. Quick Action’s certifications, ongoing learning, and great business relationships help them lead the way in the financial services industry throughout the Corridor.', 'https://quick-action.com/', '2012');
+  
+INSERT INTO company(name, description, website, date_founded)VALUES('Iowa BIG', 'Iowa BIG is a public school with no admissions requirements. Each partnering district has slots proportional to their financial commitment to the program. We currently serve an accurate cross section of our partner districts demographics.', 'http://www.iowabig.org/', 'May 28, 2014');
+ 
+INSERT INTO company(name, description, website, date_founded)VALUES('50 Pound Boson', '50-Pound Boson is a small marketing and growth hacking team focused on driving business results – not marketing results – by doing the dirty work underneath the surface of the big ecommerce and communications platforms like Amazon, Shopify, and Facebook and more', 'http://50poundboson.com/', '2017');
+  
+INSERT INTO company(name, description, website, date_founded)VALUES('512 Creative', 'In 2012, after many years of creating award-winning marketing materials and websites for other firms, graphic designers John Foster and Josh Mateer struck out on their own. Together they started Five Twelve Creative, which is a graphic design firm based in Cedar Rapids, Iowa', 'https://512creative.com/', '2012');
+ 
+INSERT INTO company(name, description, website, date_founded)VALUES('Fassler Marketing', 'From startup companies to long established businesses and everything in between, Fassler Marketing can create a solution that works for your business. Whether it''s a simple one page website or a complex site that needs to gel with your marketing efforts, we can handle it. Need a design for an app or want to sell your products online? We can do that too!', 'http://fasslermarketing.com/', '2018');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('BeatCancerToday', 'Our mission is to raise awareness of childhood cancer and provide financial support for continued childhood cancer research and patient and family support programs.', 'http://BeatCancerToday.org', '2018');
+
+
+INSERT INTO company(name, description, website, date_founded)VALUES('Shuttleworth & Ingersoll', 'In 2016, Shuttleworth & Ingersoll (S&I) was named Best Law Firm, ranking tier one in nineteen practice areas by U.S. News Media Group and Best Lawyers©. In 2012, S&I was named to Fortune Magazine''s Top Ranked Law Firms. With nearly 50 talented and experienced attorneys, S&I provides a wide range of specialized legal services to clients locally and across the nation.', 'https://www.shuttleworthlaw.com/', '2016');
+
+
+INSERT INTO company(name, description, website, date_founded)VALUES('Gravitate', 'Gravitate Coworking provides a curated experience, culture and amenities to make day-to-day operations as stress free as possible so your organization can focus on work, innovation, networking and growth', 'http://www.gravitatedsm.com/', 'July 8, 2013');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('Far Reach', 'What If you could hire a company that shares your values? you could partner with people who are as passionate as you? you could work for a company that cares about its culture? That “what if” is Far Reach.', 'http://www.gravitatedsm.com/', '2018');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('McElroy Trust', 'The R.J. McElroy Trust was founded in 1965 and is located in Waterloo, Iowa. The benefactor was R.J. McElroy, a pioneer Iowa broadcaster.', 'http://www.gravitatedsm.com/', '1965');
+
+INSERT INTO company(name, description, website, date_founded)VALUES('Entrepreneurial Technologies', 'We are diverse group of software professionals who enjoy new challenges and take pride in our work. We also strive to help out other local businesses and contribute to creating a Silicon Prairie culture in Des Moines', 'https://www.entretechno.com/', '2011');
+
+
+
+
+/* add data to employee table  and employee role table*/
+/* -------------------------- */
+
+
+INSERT INTO employee(first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES('Craig', 'Barkley', 'Cedar Rapids', 'image.jpg', 'info@tektechnologies.com', 'tektechnologies', '', TRUE, '415 12th St. SE');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Craig' AND e.last_name='Barkley'
+AND     c.name='DeltaV Code School';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) 
+SELECT  e.employee_id, c.company_id, '01-01-2012' date_started, null date_ended, 'CIO' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Craig' AND e.last_name='Barkley'
+AND     c.name='Tektechnologies';
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Marc', 'Hauschildt', 'Iowa City', 'marc.jpg', 'marc.hauschildt@gmail.com', 'mlhaus', 'marc.hauschildt', true, '4539 York Pl.');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Marc' AND e.last_name='Hauschildt'
+AND     c.name='DeltaV Code School';
+
+/* ------------ */
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Dylan', 'Schroeder', 'Lowden', 'dylan.jpg', 'schrodac@gmail.com', 'DylanSchroeder', 'dylanschroeder34', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Dylan' AND e.last_name='Schroeder'
+AND     c.name='DeltaV Code School';
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Eric', 'Engelmann', '', 'https://newbo.co/wp-content/uploads/2017/08/Eric-Engelmann-headshot-square-WEB.jpg', 'eric@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Executive Director' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Eric' AND e.last_name='Engelmann'
+AND     c.name='NewBoCo';
+/* ------------ */
+
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Jessica', 'Bertling', '', 'https://newbo.co/wp-content/uploads/2017/08/Jess-headshot-square-WEB.jpg', 'jessica@newbo.co', 'JBertling', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'UI/UX Developer' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Jessica' AND e.last_name='Bertling'
+AND     c.name='NewBoCo';
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Keith', 'Dahlby', '', 'https://newbo.co/wp-content/uploads/2017/08/Keith-headshot-square-WEB.jpg', 'keith@newbo.co', 'dahlbyk', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Software Architect' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Keith' AND e.last_name='Dahlby'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Aaron', 'Horn', '', 'https://newbo.co/wp-content/uploads/2017/08/Aaron-headshot-square-WEB.jpg', 'aaron@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Chief Operating Officer' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Aaron' AND e.last_name='Horn'
+AND     c.name='NewBoCo';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Software Architect' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Aaron' AND e.last_name='Horn'
+AND     c.name='BeatCancerToday';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Ben', 'Dillon', '', 'https://newbo.co/wp-content/uploads/2016/06/ben-121x1211.jpg', '', '', '', false, 'Cedar Rapids, IA');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Chief Strategy Office and Partner' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Ben' AND e.last_name='Dillon'
+AND     c.name='Geonetric';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Founder' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Ben' AND e.last_name='Dillon'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Bill', 'Daly', '', 'https://newbo.co/wp-content/uploads/2016/02/3ba4f63.jpg', '', '', '', false, 'Cedar Rapids, IA');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Attorney' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Ben' AND e.last_name='Dillon'
+AND     c.name='Shuttleworth & Ingersoll';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Board of Directors' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Ben' AND e.last_name='Dillon'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Geoff', 'Wood', '', 'https://newbo.co/wp-content/uploads/2017/08/Geoff-Wood-square-web.jpg', '', '', '', false, 'Des Moines, IA');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Founder' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Geoff' AND e.last_name='Wood'
+AND     c.name='Gravitate';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Board of Directors' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Geoff' AND e.last_name='Wood'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Kate', 'Washut', '', 'https://newbo.co/wp-content/uploads/2016/02/3d56593-150x150.jpg', '', '', '', false, 'Cedar Falls, IA');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Partner' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Kate' AND e.last_name='Washut'
+AND     c.name='Far Reach';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Board of Directors' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Kate' AND e.last_name='Washut'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Stacy', 'Van Gorp', '', 'https://newbo.co/wp-content/uploads/2016/04/Stacy-Van-Gorp-1.jpg', '', '', '', false, 'Cedar Falls, IA');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Executive Director' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Stacy' AND e.last_name='Van Gorp'
+AND     c.name='McElroy Trust';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Board President' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Stacy' AND e.last_name='Van Gorp'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Tej', 'Dhawan', '', 'https://newbo.co/wp-content/uploads/2017/09/Tej-Headshot-small-circle.jpg', '', '', '', false, 'Des Moines, IA');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Partner' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Tej' AND e.last_name='Dhawan'
+AND     c.name='Entrepreneurial Technologies';
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Board President' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Tej' AND e.last_name='Dhawan'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('David', 'Tominsky', '', 'https://newbo.co/wp-content/uploads/2017/08/David-Tominsky-headshot-square-WEB.jpg', 'david@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Accelerator Managing Director' job_title
+FROM    employee e, company c
+WHERE   e.first_name='David' AND e.last_name='Tominsky'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Jessalyn', 'Holdcraft', '', 'https://newbo.co/wp-content/uploads/2016/02/jessalyn-150x150.jpg', 'jessalyn@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Director of Marketing' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Jessalyn' AND e.last_name='Holdcraft'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Kaitlin', 'Byers', '', 'https://newbo.co/wp-content/uploads/2016/09/kaitlin-byers.jpg', 'kaitlin@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Director of Development' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Kaitlin' AND e.last_name='Byers'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Frank', 'Camp', '', 'https://newbo.co/wp-content/uploads/2017/08/Frank-headshot-square-WEB.jpg', 'frank@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'General Counsel' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Frank' AND e.last_name='Camp'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Molly', 'Monk', '', 'https://newbo.co/wp-content/uploads/2016/07/IMG_5450-e1469483106302.jpg', 'molly@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Storyteller' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Molly' AND e.last_name='Monk'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('John', 'Foster', '', 'https://newbo.co/wp-content/uploads/2016/07/22f9176.jpg', 'john@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Vault Community Manager' job_title
+FROM    employee e, company c
+WHERE   e.first_name='John' AND e.last_name='Foster'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Jill', 'Wilkins', '', 'https://newbo.co/wp-content/uploads/2016/08/Jill-Wilkins-2016-e1471532659432.jpg', 'jill@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Events Director' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Jill' AND e.last_name='Wilkins'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Samantha', 'Dahlby', '', 'https://newbo.co/wp-content/uploads/2016/10/Samantha-Dahlby-website-headshot.jpg', 'samantha@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'K-12 Education Coordinator' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Samantha' AND e.last_name='Dahlby'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Ben', 'Kaplan', '', 'https://newbo.co/wp-content/uploads/2017/01/BenKaplanHeadshotSquare-WEB.jpg', 'ben@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Videographer' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Ben' AND e.last_name='Kaplan'
+AND     c.name='NewBoCo';
+
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Laura', 'Kaiden', '', 'https://newbo.co/wp-content/uploads/2017/02/Laura-headshot-square-WEB.jpg', 'laura@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Events Specialist' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Laura' AND e.last_name='Kaiden'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Diane', 'Dutton', '', 'https://newbo.co/wp-content/uploads/2017/02/Diane-headshot-WEB.jpg', 'diane@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Executive Assistant' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Diane' AND e.last_name='Dutton'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Nate', 'Adams', '', 'https://newbo.co/wp-content/uploads/2017/02/Nate-Adams-WEB.jpg', 'nate@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Software Architect/Agile Coach' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Nate' AND e.last_name='Adams'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Mandy', 'Webber', '', 'https://newbo.co/wp-content/uploads/2017/03/Mandy-Headshot-BW-WEB.jpg', 'mandy@newbo.co', '', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, null date_started, null date_ended, 'Director of Innovation' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Mandy' AND e.last_name='Webber'
+AND     c.name='NewBoCo';
+
+/* ------------ */
+
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Nathan', 'Cashman', 'Cedar Rapids', 'nathan.jpg', 'need email', 'cashmann', 'need spotify', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Nathan' AND e.last_name='Cashman'
+AND     c.name='DeltaV Code School';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Ethan', 'Titler', 'Iowa City', 'ethan.jpg', '', 'RebelFlesh', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Ethan' AND e.last_name='Titler'
+AND     c.name='DeltaV Code School';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('John', 'Miester', 'Manchester', 'john.jpg', '', 'JohnMV13', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='John' AND e.last_name='Miester'
+AND     c.name='DeltaV Code School';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Taylor', 'Robinson', 'Marion', 'taylor.jpg', '', 'Madjas00', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Taylor' AND e.last_name='Robinson'
+AND     c.name='DeltaV Code School';
+
+/* ------------ */
+
+INSERT INTO employee (first_name, last_name, city, img_url, email, github_profile, spotify_profile, will_carpool, address) VALUES ('Ben', 'Van Meter', 'Cedar Rapids', 'ben.jpg', '', 'vanmeterx', '', false, '');
+
+INSERT INTO employee_role(employee_id, company_id, date_started, date_ended, job_title) SELECT  e.employee_id, c.company_id, '06-04-2018' date_started, null date_ended, 'Student' job_title
+FROM    employee e, company c
+WHERE   e.first_name='Ben' AND e.last_name='Van Meter'
+AND     c.name='DeltaV Code School';
+
+
+
+
+
+
+
+
+
+
