@@ -21,6 +21,9 @@ var app = app || {};
   };
 
   module.render = (templateId, data) => {
+    Handlebars.registerHelper('locateImage', img_url => {
+      return img_url.substring(0, 4) === 'http' ? img_url : 'images/people/' + img_url;
+    });
     let template = Handlebars.compile($(`#${templateId}`).text());
     return template(data);
   };
