@@ -6,6 +6,8 @@
   width: 100%;
   background-color: #fff;
   border-bottom: 1px solid #03312E;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .main-content {

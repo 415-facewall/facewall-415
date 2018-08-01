@@ -21,19 +21,20 @@
   </script>
   
   <script id="detail-overlay-template" type="text/x-handlebars-template">
-    <img src='{{image_url}}'>
+    <img src='{{img_url}}'>
     <h3>{{first_name}} {{last_name}}</h3>
-    <h4>{{company}}-{{job_title}}</h4>
+    <h4>{{name}}-{{job_title}}</h4>
     <a href='{{github_url}}'class='.icon-github'></a>
     <a href='/users/{{spotify_id}}'>Connect Spotify</a>
   </script>
 
   <script id="employee-list-template" type="text/x-handlebars-template">
-    <figure data-company="{{company}}" data-last-name="{{last_name}}">
-      <img src="{{image_url}}" alt="{{name}}">
+    <figure class="employee" data-company="{{name}}" data-last-name="{{last_name}}">
+      <img src="images/people/{{img_url}}" alt="{{first_name}} {{last_name}}">
       <figcaption>
         <p>{{first_name}} {{last_name}}</p>
-        <p>{{company}}-{{job_title}}</p>
+        <p>{{name}} - {{job_title}}</p>
+        <p><a href="mailto:{{email}}">E-mail</a> | <a href="https://github.com/{{github_profile}}">GitHub</a></p>
         <p class="detail-button">
           <a href="/employee/{{employee_id}}">Details</a>
         </p>
@@ -43,7 +44,7 @@
 </head>
 
 <body>
-  <header class="header container">
+  <header class="header">
     <h1 class="logo">
       <a href="/">The 415 Facewall</a>
     </h1>
@@ -68,15 +69,14 @@
   </header>
   <main class="main-content">
     <aside class="filter-search">
-      <section class="filters container clearfix">
+      <section class="filters clearfix">
         <h3>Filter</h3>
       </section>
-      <section class="search container">
+      <section class="search">
         <h3>Search</h3>
       </section>
     </aside>
     <section class="employee-view clearfix">
-      <!--<div id='employees'></div>-->
     </section>
     <section class='detail-view container'>
       <div id='detail-overlay'></div>

@@ -25,12 +25,10 @@ client.on('error', error => console.log(error));
 
 
 app.get('/api/v1/employee',(req, res, next)=>{
-  // let SQL = `SELECT e.first_name, e.last_name, e.city, e.img_url, e.email, e.github_profile, e.spotify_profile, c.name, r.job_title, r.date_started, r.date_ended
-  // FROM employee_role r
-  // INNER JOIN employee e ON e.employee_id = r.employee_id
-  // INNER JOIN company c ON c.company_id = r.company_id`;
-  //let SQL = `SELECT * FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema'`;
-  let SQL = `SELECT * FROM employee`;
+  let SQL = `SELECT e.employee_id, e.first_name, e.last_name, e.img_url, e.email, e.github_profile, c.name, r.job_title
+  FROM employee_role r
+  INNER JOIN employee e ON e.employee_id = r.employee_id
+  INNER JOIN company c ON c.company_id = r.company_id`;
 
   console.log(SQL);
   client.query(SQL)
