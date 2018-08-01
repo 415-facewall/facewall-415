@@ -62,7 +62,7 @@ app.use(express.static('./public'));
 
 
 //Spotify API Endpoints
-app.get('/api/v1/users/:user_id', (req, res) => {
+app.get('/api/v1/employee/:employee_id/:user_id', (req, res) => {
   let url = 'https://accounts.spotify.com/api/token'
   var our_access_token;
   superagent.post(url)
@@ -75,12 +75,12 @@ app.get('/api/v1/users/:user_id', (req, res) => {
         .set('Authorization', `Bearer ${access_token}`);
     })
     .then(result =>
-      superagent.get(result.body.items[1].tracks.href)
+      superagent.get(result.body.items[0].tracks.href)
         .set('Authorization', `Bearer ${our_access_token}`)
     )
     .then(result =>{
       //console.log(result.body.items[1].track_name);
-      let tracks = result.body.items.map(item => item.track)
+      let tracks = result.body.items.map(item => item.track);
       return res.send(tracks);}
     );
 })

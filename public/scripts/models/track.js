@@ -3,6 +3,8 @@
 var app = app || {};
 
 (function (module){
+  module.Track = Track;
+
   function errorCallback(err) {
     console.error(err);
     module.errorView.initErrorPage(err);
@@ -12,16 +14,16 @@ var app = app || {};
     Object.keys(trackInfo).forEach(key=> this[key]=trackInfo[key]);
   }
 
-  Track.prototype.toHtml = function(){
+  Track.prototype.toTrackHtml = function(){
     return app.render('spotify-template', this)
   }
 
   Track.all = [];
   Track.loadAll = rows => Track.all = rows.map(track => new Track(track));
-  Track.fetchAll4One = (user_id, callback) => 
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/users/${user_id}`)
+  Track.fetchPlaylists = (user_id, employee_id, callback) => 
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${employee_id}/${user_id}`)
       .then(Track.loadAll)
-      .then(callback)
+      .then(()=> callback(app.Person.all[employee_id-1]))
       .catch(errorCallback);
 
 })(app)
