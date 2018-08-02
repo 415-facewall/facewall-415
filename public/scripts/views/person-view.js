@@ -39,21 +39,18 @@ var app = app || {};
   };
 
   personView.initIndexPage = () => {
-    $('.employee-view').empty();
-    $('.filters, .search').show();
-    $('.about-selector').hide();
     app.showOnly('.employee-view');
-    app.Person.all.forEach(person => $('.employee-view').append(person.toHtml()));
-    personView.populateFilters();
-    personView.handleCompanyFilter();
+    app.Person.getAll().forEach(person => $('.employee-view').append(person.toHtml()));
+    // TO-DO: Show filters
+    // personView.populateFilters();
+    // personView.handleCompanyFilter();
   }
 
-  personView.initDetailView = (person) => {
-    personView.initIndexPage();
-    $('#detail-overlay').empty();
-    $('.error-view').hide();
-    $('.detail-view').fadeIn();
-    $('#detail-overlay').append(person.toDetailHtml());
+  personView.initDetailPage = person => {
+    console.log('From person-view');
+    console.log(person);
+    app.showOnly('.person-detail');
+    $('#person-detail').empty().append(person.detailToHtml());
   }
 
   personView.initTrackView = (person) => {

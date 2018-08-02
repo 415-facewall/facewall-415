@@ -22,16 +22,12 @@ const client = new pg.Client(conString);
 client.connect();
 client.on('error', error => console.log(error));
 
-
-
 app.get('/api/v1/employee',(req, res, next)=>{
-  let SQL = `SELECT e.employee_id, e.first_name, e.last_name, e.img_url, e.email, e.github_profile, c.name, r.job_title
+  let SQL = `SELECT e.employee_id, e.first_name, e.last_name, e.city, e.img_url, e.email, e.github_profile,e.spotify_profile, c.name, r.job_title
   FROM employee_role r
   INNER JOIN employee e ON e.employee_id = r.employee_id
-  INNER JOIN company c ON c.company_id = r.company_id
-  ORDER BY e.last_name, e.first_name, c.name`;
+  INNER JOIN company c ON c.company_id = r.company_id`;
 
-  console.log(SQL);
   client.query(SQL)
     .then(result => {
       res.send(result.rows);
@@ -40,15 +36,13 @@ app.get('/api/v1/employee',(req, res, next)=>{
 });
 
 app.get('/api/v1/employee/:employee_id', (req, res, next)=>{
-  console.log('loading');
-  let SQL = `SELECT e.employee_id, e.first_name, e.last_name, e.img_url, e.email, e.github_profile, c.name, r.job_title
+  let SQL = `SELECT e.employee_id, e.first_name, e.last_name, e.city, e.img_url, e.email, e.github_profile,e.spotify_profile, c.name, r.job_title
   FROM employee_role r
   INNER JOIN employee e ON e.employee_id = r.employee_id
   INNER JOIN company c ON c.company_id = r.company_id WHERE e.employee_id=${req.params.employee_id}`;
 
   client.query(SQL)
     .then(result =>{
-      console.log(`The result:${result.rows}`);
       res.send(result.rows)
     })
     .catch(next);

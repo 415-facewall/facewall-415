@@ -14,23 +14,35 @@ var app = app || {};
     apiUrl: module.isProduction ? productionApiUrl : developmentApiUrl,
   };
 
-
   module.showOnly = (selector) => {
     $('.container').hide();
     $(selector).show();
   };
 
+  const templateCache = {};
   module.render = (templateId, data) => {
-    Handlebars.registerHelper('locateImage', img_url => {
-      return img_url.substring(0, 4) === 'http' ? img_url : '/images/people/' + img_url;
-    });
-    Handlebars.registerHelper('hasEmail', email =>{
-      return !email ? '' : ` <a href="mailto:${email}" class="icon-mail4"></a> `
-    });
-    Handlebars.registerHelper('hasGithub', github_profile =>{
-      return !github_profile ? '' : ` <a href="https://github.com/${github_profile}" class="icon-github" target="_blank"></a> `
-    });
-    let template = Handlebars.compile($(`#${templateId}`).text());
+    console.log('From top of render');
+    console.log(data);
+    let template = templateCache[templateId];
+    if (!template) {
+      console.log(`Compiling template ${templateId}`);
+      Handlebars.registerHelper('locateImage', img_url => {
+        return img_url.substring(0, 4) === 'http' ? img_url : '/images/people/' + img_url;
+      });
+      Handlebars.registerHelper('hasEmail', email =>{
+        return !email ? '' : ` <a href="mailto:${email}" class="icon-mail4"></a> `
+      });
+      Handlebars.registerHelper('hasGithub', github_profile =>{
+        return !github_profile ? '' : ` <a href="https://github.com/${github_profile}" class="icon-github" target="_blank"></a> `
+      });
+      console.log(document.getElementById(templateId).innerText);
+      template = Handlebars.compile(document.getElementById(templateId).innerText);
+      console.log('From bottom of render');
+      console.log(template);
+      // template = Handlebars.compile($(`#${templateId}`).text());
+    }
+    console.log(data);
+    // let template = Handlebars.compile($(`#${templateId}`).text());
     return template(data);
   };
 
