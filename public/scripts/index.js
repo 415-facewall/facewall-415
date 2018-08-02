@@ -38,14 +38,15 @@ var app = app || {};
 })(app); //This closes the function module.
 
 $(document).ready(function() {
+  var win = $(this);
   $('.hamburger-menu').on('mouseenter', function(){
-    $('.top-nav-items').css('display', 'block');
+    $('.top-nav-items-mobile').css('display', 'block');
   });
   $('.hamburger-menu').on('click', function(){
-    $('.top-nav-items').toggle();
+    $('.top-nav-items-mobile').toggle();
   });
-  $('.top-nav-items').on('mouseleave', function() {
-    $('.top-nav-items').css('display', 'none');
+  $('.top-nav-items-mobile').on('mouseleave', function() {
+    $('.top-nav-items-mobile').css('display', 'none');
   });
 });
 
