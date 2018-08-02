@@ -39,14 +39,15 @@ var app = app || {};
 
 
 $(document).ready(function() {
+  var win = $(this);
   $('.hamburger-menu').on('mouseenter', function(){
-    $('.top-nav-items').removeClass('hidden');
+    $('.top-nav-items-mobile').css('display', 'block');
   });
   $('.hamburger-menu').on('click', function(){
-    $('.top-nav-items').toggleClass('hidden');
+    $('.top-nav-items-mobile').toggle();
   });
-  $('.top-nav-items').on('mouseleave', function() {
-    $(this).addClass('hidden');
+  $('.top-nav-items-mobile').on('mouseleave', function() {
+    $('.top-nav-items-mobile').css('display', 'none');
   });
 });
 
