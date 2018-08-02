@@ -44,3 +44,7 @@
  .hidden {
    display: none !important;
  }
+
+ a {
+   outline-style: none;
+ }

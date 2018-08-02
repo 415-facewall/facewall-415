@@ -32,18 +32,11 @@
   float: left;
   clear: none;
   width: 47%;
+  height: 57vw;
   margin: 2% 0 0 2%;
   background: #fff;
   border: 1px solid #03312E;
   padding: 1%;
-}
-
-.employee:last-of-type {
-  margin-bottom: 2%;
-}
-
-.employee:nth-of-type(2n+1) {
-  clear: left;
 }
 
 .employee-photo {
@@ -86,16 +79,11 @@
 @media screen and (min-width: 600px) {
   .employee {
     width: 31%;
+    height: 44vw;
     margin: 1.75% 0 0 1.75%;
   }
-  .employee:last-of-type {
-    margin-bottom: 1.75%;
-  }
-  .employee:nth-of-type(2n+1) {
-    clear: none;
-  }
-  .employee:nth-of-type(3n+1) {
-    clear: left;
+  .main-content {
+    padding-bottom: 1.75%;
   }
   .employee-photo {
     height: 30vw;
@@ -105,16 +93,11 @@
 @media screen and (min-width: 768px) {
   .employee {
     width: 23.125%;
+    height: 31vw;
     margin: 1.5% 0 0 1.5%;
   }
-  .employee:last-of-type {
-    margin-bottom: 1.5%;
-  }
-  .employee:nth-of-type(3n+1) {
-    clear: none;
-  }
-  .employee:nth-of-type(4n+1) {
-    clear: left;
+  .main-content {
+    padding-bottom: 1.5%;
   }
   .employee-photo {
     height: 20vw;
@@ -128,7 +111,12 @@
     margin: 1.25% 0 1.25% 1.25%;
   }
   .filters {
-    float: none;
+    width: 100%;
+  }
+  .filters h3, #filters {
+    display: block;
+  }
+  #filters select {
     width: 100%;
   }
   .search {
@@ -140,16 +128,11 @@
   }
   .employee {
     width: 31.33333%;
+    height: 29vw;
     margin: 1.5% 0 0 1.5%
   }
-  .employee:last-of-type {
-    margin-bottom: 1.5%;
-  }
-  .employee:nth-of-type(4n+1) {
-    clear: none;
-  }
-  .employee:nth-of-type(3n+4) {
-    clear: left;
+  .main-content {
+    padding-bottom: 1.25%;
   }
   .employee-photo {
     height: 20vw;
@@ -166,16 +149,11 @@
   }
   .employee {
     width: 23.4375%;
+    height: 23vw;
     margin: 1.25% 0 0 1.25%
   }
-  .employee:last-of-type {
-    margin-bottom: 1.25%;
-  }
-  .employee:nth-of-type(3n+4) {
-    clear: none;
-  }
-  .employee:nth-of-type(4n+5) {
-    clear: left;
+  .main-content {
+    padding-bottom: 1%;
   }
   .employee-photo {
     height: 15vw;
