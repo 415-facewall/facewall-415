@@ -113,7 +113,7 @@
     margin: 1.25% 0 1.25% 1.25%;
   }
 
-  .top-nav-items{
+  .top-nav-items, .about-view, .error-view{
     margin-left: 23.4375%;
   }
 
@@ -165,7 +165,7 @@
     margin: 0;
   }
 
-  .top-nav-items, .about-view{
+  .top-nav-items, .about-view, .error-view{
     margin-left: 18.8%;
   }
 

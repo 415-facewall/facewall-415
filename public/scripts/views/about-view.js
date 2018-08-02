@@ -5,7 +5,7 @@ var app = app || {};
   module.aboutView = aboutView;
   aboutView.initAboutPage = () =>{
     $('.filters, .search').hide();
-    $('.about-selector').show();
+    $('.about-selector').fadeIn();
     $('.employee-view').hide();
     $('.bio').hide();
     app.showOnly($('.about-view'));
