@@ -29,7 +29,7 @@
  }
 
  body {
-   background-color: #FFF;
+   background-color: #edf2f4;
    color: #03312E;
    font-size: 14px;
    font-family: "Roboto", sans-serif;
@@ -49,8 +49,24 @@
  a {
    outline-style: none;
  }
+ 
+ .error-view img{
+   display: block;
+   margin: 0 auto;
+ }
 
  .error-view{
    display: none;
+   text-align: center;
+   font-size: 40px;
+   z-index: 0;
  }
 
+.about-selector{
+  display: none;
+}
+
+.about-view{
+  display: none;
+  color: #edf2f4;
+}

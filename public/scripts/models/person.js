@@ -45,8 +45,11 @@ var app = app || {};
       if (!foundPerson) {
         all.push(new Person(row));
       } else {
-        foundPerson.role.push(row.job_title + ' at ' + row.name);
-        foundPerson.company.push(row.name);
+        if(!foundPerson.role.includes(row.job_title + ' at '+row.name)){
+          console.log(foundPerson.role);
+          foundPerson.role.push(row.job_title + ' at ' + row.name);
+          foundPerson.company.push(row.name);
+        }
       }
     });
     all.sort(function(a, b){

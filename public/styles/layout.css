@@ -176,7 +176,6 @@
 }
 
 .about-selector{
-  display: block;
   text-align: center;
   align-content: center;
 }
@@ -192,4 +191,9 @@
 .about-selector img a{
   text-decoration: none;
   color: transparent;
+}
+
+.detail-view img{
+  max-height: 40%;
+  max-width: 40%;
 }

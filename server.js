@@ -30,6 +30,7 @@ app.get('/api/v1/employee',(req, res, next)=>{
 
   client.query(SQL)
     .then(result => {
+      console.log(result.rows);
       res.send(result.rows);
     })
     .catch(next);
