@@ -12,4 +12,6 @@ page('/employee/:employee_id'
 page('/employee/:employee_id/:user_id', ctx =>{console.log(ctx.params.user_id); app.Track.fetchPlaylists(ctx.params.user_id, ctx.params.employee_id, app.personView.initTrackView)}
 );
 
+
+
 page();
