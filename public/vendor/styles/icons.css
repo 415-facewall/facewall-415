@@ -1,70 +1,50 @@
 @font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?wfb79s');
-	src:url('fonts/icomoon.eot?wfb79s#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.ttf?wfb79s') format('truetype'),
-		url('fonts/icomoon.woff?wfb79s') format('woff'),
-		url('fonts/icomoon.svg?wfb79s#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?8mdnwm');
+  src:  url('fonts/icomoon.eot?8mdnwm#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?8mdnwm') format('truetype'),
+    url('fonts/icomoon.woff?8mdnwm') format('woff'),
+    url('fonts/icomoon.svg?8mdnwm#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-home:before {
-	content: "\e908";
+  content: "\e900";
 }
-.icon-home3:before {
-	content: "\e900";
+.icon-pencil:before {
+  content: "\e905";
 }
-.icon-address-book:before {
-	content: "\e901";
-}
-.icon-rocket:before {
-	content: "\e909";
-}
-.icon-power:before {
-	content: "\e90a";
-}
-.icon-menu:before {
-	content: "\e902";
-}
-.icon-link:before {
-	content: "\e903";
-}
-.icon-happy:before {
-	content: "\e904";
-}
-.icon-happy2:before {
-	content: "\e905";
-}
-.icon-plus:before {
-	content: "\e90b";
-}
-.icon-minus:before {
-	content: "\e90c";
+.icon-phone:before {
+  content: "\e942";
 }
 .icon-cross:before {
-	content: "\e90d";
+  content: "\ea0f";
 }
 .icon-checkmark:before {
-	content: "\e90e";
+  content: "\ea10";
 }
-.icon-twitter3:before {
-	content: "\e906";
+.icon-mail4:before {
+  content: "\ea86";
+}
+.icon-spotify:before {
+  content: "\ea94";
 }
 .icon-github:before {
-	content: "\e907";
+  content: "\eab0";
 }
