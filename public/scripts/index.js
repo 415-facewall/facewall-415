@@ -37,6 +37,7 @@ var app = app || {};
 
 })(app); //This closes the function module.
 
+
 $(document).ready(function() {
   $('.hamburger-menu').on('mouseenter', function(){
     $('.top-nav-items').removeClass('hidden');
@@ -48,4 +49,5 @@ $(document).ready(function() {
     $(this).addClass('hidden');
   });
 });
+
 

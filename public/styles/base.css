@@ -44,3 +44,7 @@
  .hidden {
    display: none !important;
  }
+
+ .error-view{
+   display: none;
+ }

@@ -59,4 +59,10 @@ var app = app || {};
     personView.initDetailView(person);
     app.Track.all.forEach(track => $('#detail-overlay tbody').append(track.toTrackHtml()));
   }
+
+  personView.initAboutPage = () =>{
+    $('.employee-view').empty();
+    // $('.filter-search').hide();
+    app.showOnly($('.about-view'))
+  }
 })(app)
