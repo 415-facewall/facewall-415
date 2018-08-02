@@ -49,8 +49,16 @@
  a {
    outline-style: none;
  }
+ 
+ .error-view img{
+   display: block;
+   margin: 0 auto;
+ }
 
  .error-view{
    display: none;
+   text-align: center;
+   font-size: 40px;
+   z-index: 0;
  }
 

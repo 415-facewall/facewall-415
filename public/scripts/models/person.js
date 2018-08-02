@@ -43,9 +43,13 @@ var app = app || {};
       });
       if (!foundPerson) {
         Person.all.push(new Person(row));
+        console.log(Person.all);
       } else {
-        foundPerson.role.push(row.job_title + ' at ' + row.name);
-        foundPerson.company.push(row.name);
+        if(!foundPerson.role.includes(row.job_title + ' at '+row.name)){
+          console.log(foundPerson.role);
+          foundPerson.role.push(row.job_title + ' at ' + row.name);
+          foundPerson.company.push(row.name);
+        }
       }
     });
   }

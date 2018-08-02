@@ -6,6 +6,7 @@ var app = app || {};
   module.errorView = errorView;
 
   errorView.initErrorPage = err =>{
+    $('about-selector').hide();
     app.showOnly('.error-view');
     console.error(err);
   }
