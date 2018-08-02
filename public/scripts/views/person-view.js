@@ -7,6 +7,8 @@ var app = app || {};
 
   personView.initIndexPage = () => {
     $('.employee-view').empty();
+    $('.filters, .search').show();
+    $('.about-selector').hide();
     app.showOnly('.employee-view');
     app.Person.all.forEach(person => $('.employee-view').append(person.toHtml()));
   }
@@ -25,9 +27,6 @@ var app = app || {};
     app.Track.all.forEach(track => $('#detail-overlay tbody').append(track.toTrackHtml()));
   }
 
-  personView.initAboutPage = () =>{
-    $('.employee-view').empty();
-    // $('.filter-search').hide();
-    app.showOnly($('.about-view'))
-  }
+  
+
 })(app)

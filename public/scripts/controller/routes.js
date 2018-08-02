@@ -10,7 +10,11 @@ page('/employee/:employee_id'
 );
 
 page('/about'
-  , ctx => app.personView.initAboutPage(ctx)
+  , () => app.aboutView.initAboutPage()
+);
+
+page('/about/:name',
+  ctx => app.aboutView.renderOne(ctx.params.name)
 );
 
 page('/employee/:employee_id/:user_id', ctx =>{console.log(ctx.params.user_id); app.Track.fetchPlaylists(ctx.params.user_id, ctx.params.employee_id, app.personView.initTrackView)}
