@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: #edf2f4;
   border-bottom: 1px solid #03312E;
   margin: 0 auto;
   padding: 0 10px;
@@ -138,4 +138,23 @@
 .exit:hover{
   background: black;
   color: #ccc;
+}
+
+.about-selector{
+  display: block;
+  text-align: center;
+  align-content: center;
+}
+
+.about-selector img{
+  display: inline;
+  width: 100px;
+  height: 100px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+}
+
+.about-selector img a{
+  text-decoration: none;
+  color: transparent;
 }

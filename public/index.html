@@ -61,6 +61,7 @@
       </select>
     </li>
   </script>
+
 </head>
 
 <body>
@@ -96,27 +97,33 @@
       <section class="search">
         <h3>Search</h3>
       </section>
+      <section class='about-selector'>
+        <a href='/about/nathan_cashman'><img src='/images/people/nathan.jpg'></a>
+        <a href='/about/dylan_schroeder'><img src='/images/people/dylan.jpg'></a>
+        <a href='/about/marc_hauschildt'><img src='/images/people/marc.jpg'></a>
+        <a href='/about/craig_barkley'><img src='/images/people/craig.jpg'></a>
+      </section>
     </aside>
     <section class="employee-view clearfix">
     </section>
     <section class='detail-view container'>
       <div id='detail-overlay'></div>
     </section>
-    <section class='error-view container'>Oh boy, I sure hope this doesn't show up during a presentation...<img id='error-image' src='https://cdn.discordapp.com/attachments/161297309978591233/473905575571357706/cirDabbing.gif'></section>
+    <section class='error-view container'>Oh boy, I sure hope this doesn't show up during a presentation...<img id='error-image' src='https://cdn.discordapp.com/attachments/161297309978591233/473905575571357706/cirDabbing.gif'><img src='https://cdn.discordapp.com/attachments/161297309978591233/474553811651002368/image.gif'></section>
     <section class="about-view container">
       <div>
         <h3>About Us</h3>
       </div>
-      <section>
+      <section class='bio' id='nathan_cashman'>
         Person 1
       </section>
-      <section>
+      <section class='bio' id='marc_hauschildt'>
         Person 2
       </section>
-      <section>
+      <section class='bio' id='dylan_schroeder'>
         Person 3
       </section>
-      <section>
+      <section class='bio' id='craig_barkley'>
         Person 4
       </section>
     </section>
@@ -128,6 +135,7 @@
   <script src="/scripts/index.js"></script>
   <script src="/scripts/models/filter.js"></script>
   <script src="/scripts/models/person.js"></script>
+  <script src='/scripts/views/about-view.js'></script>
   <script src="/scripts/models/track.js"></script>
   <script src="/scripts/views/person-view.js"></script>
   <script src='/scripts/views/error-view.js'></script>
