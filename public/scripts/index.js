@@ -39,13 +39,13 @@ var app = app || {};
 
 $(document).ready(function() {
   $('.hamburger-menu').on('mouseenter', function(){
-    $('.top-nav-items').removeClass('hidden');
+    $('.top-nav-items').css('display', 'block');
   });
   $('.hamburger-menu').on('click', function(){
-    $('.top-nav-items').toggleClass('hidden');
+    $('.top-nav-items').toggle();
   });
   $('.top-nav-items').on('mouseleave', function() {
-    $(this).addClass('hidden');
+    $('.top-nav-items').css('display', 'none');
   });
 });
 

@@ -35,6 +35,7 @@
 }
 
 .top-nav-items {
+  display: none;
   list-style: none;
   background-color: #fff;
   color: #03312E;
@@ -69,6 +70,38 @@
   background-color: #03312E;
   margin-bottom: 6px;
   border-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  .top-nav-items {
+    /* list-style: none;
+    background-color: #fff;
+    color: #03312E;
+    padding: 0;
+    margin: 0; */
+    position: static;
+    /* top: 55px;
+    left: 0; */
+    /* width: 100%;
+    height: 120px; */
+  }
+  
+  .top-nav-items a {
+    display: inline-block;
+    color: #03312E;
+    text-decoration: none;
+    padding: 10px 20px;
+    line-height: 20px;
+  }
+  
+  .top-nav-items a:hover {
+    background: #009F93;
+    color: #EDF2F4;
+  }
+  
+  .hamburger-menu {
+    display: none;
+  }
 }
 
 .detail-view{
