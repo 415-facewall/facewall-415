@@ -37,13 +37,14 @@
 .top-nav ul {
   display: none;
   list-style: none;
-  background-color: #fff;
+  background-color: inherit;
   color: #03312E;
   padding: 0;
   margin: 0;
 }
 
 .top-nav-items-mobile {
+  background-color: #fff !important;
   position: absolute;
   top: 55px;
   left: 0;
