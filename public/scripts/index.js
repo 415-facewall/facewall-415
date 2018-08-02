@@ -37,6 +37,7 @@ var app = app || {};
 
 })(app); //This closes the function module.
 
+
 $(document).ready(function() {
   var win = $(this);
   $('.hamburger-menu').on('mouseenter', function(){
@@ -49,4 +50,5 @@ $(document).ready(function() {
     $('.top-nav-items-mobile').css('display', 'none');
   });
 });
+
 

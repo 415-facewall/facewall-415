@@ -45,6 +45,12 @@
    display: none !important;
  }
 
+
  a {
    outline-style: none;
  }
+
+ .error-view{
+   display: none;
+ }
+

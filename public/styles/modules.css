@@ -88,6 +88,8 @@
   .employee-photo {
     height: 30vw;
   }
+
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -110,6 +112,19 @@
     width: 23.4375%;
     margin: 1.25% 0 1.25% 1.25%;
   }
+
+  .top-nav-items{
+    margin-left: 23.4375%;
+  }
+
+  .filter-search{
+    position: fixed;
+    top: 55px;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+  }
+
   .filters {
     width: 100%;
   }
@@ -123,6 +138,11 @@
     float: none;
     width: 100%;
   }
+
+  .about-selector img{
+    display: block;
+  }
+
   .employee-view {
     margin-left: 24.6875%
   }
@@ -142,8 +162,13 @@
 @media screen and (min-width: 1200px) {
   .filter-search {
     width: 18.8%;
-    margin: 1% 0 1% 1%;
+    margin: 0;
   }
+
+  .top-nav-items, .about-view{
+    margin-left: 18.8%;
+  }
+
   .employee-view {
     margin-left: 19.8%
   }

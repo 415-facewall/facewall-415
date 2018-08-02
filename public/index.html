@@ -21,6 +21,7 @@
   </script>
 
   <script id="detail-overlay-template" type="text/x-handlebars-template">
+    <a class='exit' href='/'>X</a>
     <img src="{{locateImage img_url}}">
     <h3>{{first_name}} {{last_name}}</h3>
     {{#each role}}
@@ -60,6 +61,7 @@
       </select>
     </li>
   </script>
+
 </head>
 
 <body>
@@ -104,14 +106,36 @@
       </section>
       <section class="search">
       </section>
+      <section class='about-selector'>
+        <a href='/about/nathan_cashman'><img src='/images/people/nathan.jpg'></a>
+        <a href='/about/dylan_schroeder'><img src='/images/people/dylan.jpg'></a>
+        <a href='/about/marc_hauschildt'><img src='/images/people/marc.jpg'></a>
+        <a href='/about/craig_barkley'><img src='/images/people/craig.jpg'></a>
+      </section>
     </aside>
     <section class="employee-view clearfix">
     </section>
     <section class='detail-view container'>
       <div id='detail-overlay'></div>
     </section>
-    <section class='error-view container'>Oh boy, I sure hope this doesn't show up during a presentation...
-      <img id='error-image' src='https://cdn.discordapp.com/attachments/161297309978591233/473905575571357706/cirDabbing.gif'>
+    <section class='error-view container'>Oh boy, I sure hope this doesn't show up during a presentation...<img id='error-image' src='https://cdn.discordapp.com/attachments/161297309978591233/473905575571357706/cirDabbing.gif'><img src='https://cdn.discordapp.com/attachments/161297309978591233/474553811651002368/image.gif'></section>
+    <section class="about-view container">
+      <div>
+        <h3>About Us</h3>
+      </div>
+      <section class='bio' id='nathan_cashman'>
+        <p>I'm an ex-music educator with a bachelor's degree from Drake University. After choosing to leave the field of education, I decided to follow an interest in technology I've had since a young age. My interest in the field was inspired by the numerous innovations that constantly emerge from the field of technology and I decided I'd like to be a part of that. Through my past experiences in education and music, I am proficient in higher-level thinking and professional communication and I have developed a strong work ethic and sense of self-motivation. In my current field, I am well rounded in HTML, CSS, and Javascript and I am adept at thinking through a given problem and figuring out the most effective way to solve it. My goal is simply to find a role in an industry where I can make use of my love of learning.
+        Responsibilities on this project: Data filtering and storage functionality, data styling, debugging, stand-up comedian Jerry Seinfeld, meme master.</p>
+      </section>
+      <section class='bio' id='marc_hauschildt'>
+        Person 2
+      </section>
+      <section class='bio' id='dylan_schroeder'>
+        Person 3
+      </section>
+      <section class='bio' id='craig_barkley'>
+        <P>With a Management Information Systems Degree, I have worked with medium retail businesses for the last 15 years and enjoy using my knowledge to create value for those companies. I am currently a DeltaV student, as well as a Kirkwood Community College student finishing a Computer Software Development and Web Technologies Associate in Applied Science. I am effective at learning and integrating those new technology skills into my development process. I am hoping to find a role creating world class business applications for small to medium size businesses. As a small business owner I know the importance of having a strategic business plan that includes a technology as a main component to their success; and I want to share my management skills and experiences with them to help them overcome the boundaries that all businesses face in the global market..</P>
+      </section>
     </section>
   </main>
 
@@ -121,6 +145,7 @@
   <script src="/scripts/index.js"></script>
   <script src="/scripts/models/filter.js"></script>
   <script src="/scripts/models/person.js"></script>
+  <script src='/scripts/views/about-view.js'></script>
   <script src="/scripts/models/track.js"></script>
   <script src="/scripts/views/person-view.js"></script>
   <script src='/scripts/views/error-view.js'></script>
