@@ -46,7 +46,6 @@ var app = app || {};
         all.push(new Person(row));
       } else {
         if(!foundPerson.role.includes(row.job_title + ' at '+row.name)){
-          console.log(foundPerson.role);
           foundPerson.role.push(row.job_title + ' at ' + row.name);
           foundPerson.company.push(row.name);
         }
@@ -71,7 +70,13 @@ var app = app || {};
       .then(personData => callback(new Person(personData[0])))
       .catch(errorCallback);
   }
-    
+
+  Person.fetchOneForSpotify = (employee_id, callback) => {
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${employee_id}`)
+      .then(loadAll)
+      .then(() => callback(all[0]))
+      .catch(errorCallback);
+  }
 
   module.Person = Person;
 })(app)
