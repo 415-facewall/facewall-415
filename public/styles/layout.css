@@ -83,7 +83,7 @@
 #detail-overlay{
   height: 75%;
   width: 75%;
-  background: #D90429;
+  background: radial-gradient(ellipse at center, #d9d9d9 0%, #d1d1d1 47%, #adadad 100%);
   position: fixed;
   z-index: 3;
   top: 12.5%;
@@ -109,8 +109,33 @@
   float: left;
   clear: both;
   text-align: center;
+  background:  radial-gradient(ellipse at center, #333333 0%, #052e2c 79%, #052e2c 100%);
+}
+
+.detail-view tr{
+  border: .5px solid #052e2c;
+  color: #ccc;
 }
 
 .detail-view td{
-  border: .5px solid #ccc;
+  padding: 10px 5px;
+  width: 33%;
+}
+
+.exit{
+  text-decoration: none;
+  color: black;
+  padding: 1px 5px;
+  margin-top: 5px;
+  margin-right: 5px;
+  float: right;
+  background: rgba(0,0,0, .1);
+  border: 1px solid rgba(0,0,0, .1);
+  border-radius: 50%;
+  transition: linear 200ms;
+}
+
+.exit:hover{
+  background: black;
+  color: #ccc;
 }
