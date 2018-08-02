@@ -47,16 +47,14 @@ var app = app || {};
   }
 
   personView.initDetailPage = person => {
-    console.log('From person-view');
-    console.log(person);
     app.showOnly('.person-detail');
     $('#person-detail').empty().append(person.detailToHtml());
   }
 
   personView.initTrackView = (person) => {
     personView.initIndexPage();
-    personView.initDetailView(person);
-    app.Track.all.forEach(track => $('#detail-overlay tbody').append(track.toTrackHtml()));
+    personView.initDetailPage(person);
+    app.Track.all.forEach(track => $('#person-detail tbody').append(track.toTrackHtml()));
   }
 
   
