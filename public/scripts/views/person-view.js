@@ -5,10 +5,38 @@ var app = app || {};
   const personView = {};
   module.personView = personView;
 
+  personView.populateFilters = () => {
+    $('.employee').each(function() {
+      let role_company = $(this).find('.role-company');
+      for(let i = 0; i < role_company.length; i++) {
+        let val = role_company[i].textContent;
+        let company = val.substring(val.indexOf(' at ') + 4);
+        let optionTag = `<option value="${company}">${company}</option>`;
+        if ($(`#company-filter option[value="${company}"]`) .length === 0) {
+          $('#company-filter').append(optionTag);
+        }
+      }
+    });
+  };
+
+  personView.handleCompanyFilter = () => {
+    $('#company-filter').on('change', function() {
+      if ($(this).val()) {
+        $('.employee').hide();
+        $(`.employee[data-company*="${$(this).val()}"]`).fadeIn();
+      } else {
+        $('.employee').fadeIn();
+      }
+      $('#company-filter').val('');
+    });
+  };
+
   personView.initIndexPage = () => {
     $('.employee-view').empty();
     app.showOnly('.employee-view');
     app.Person.all.forEach(person => $('.employee-view').append(person.toHtml()));
+    personView.populateFilters();
+    personView.handleCompanyFilter();
   }
 
   personView.initDetailView = (person) =>{

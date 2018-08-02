@@ -38,12 +38,12 @@
   </script>
 
   <script id="employee-list-template" type="text/x-handlebars-template">
-    <figure class="employee" data-company="{{name}}" data-last-name="{{last_name}}">
+    <figure class="employee" data-company="{{#each company}}{{this}} {{/each}}" data-last-name="{{last_name}}">
       <div class="employee-photo" style="background-image: url({{locateImage img_url}});"></div>
       <figcaption>
         <p>{{first_name}} {{last_name}}</p>
-        {{#each company_role}}
-          <p>{{this}}</p>
+        {{#each role}}
+          <p class="role-company">{{this}}</p>
         {{/each}}
         <p>{{{hasEmail email}}} {{{hasGithub github_profile}}}</p>
         <p class="detail-button">
@@ -51,6 +51,14 @@
         </p>
       </figcaption>
     </figure>
+  </script>
+
+  <script id="filter-template" type="text/x-handlebars-template">
+    <li>
+      <select id="{{id}}-filter">
+        <option value="">-- Filter by Company --</option>
+      </select>
+    </li>
   </script>
 </head>
 
@@ -82,6 +90,9 @@
     <aside class="filter-search">
       <section class="filters clearfix">
         <h3>Filter</h3>
+        <div>
+          <ul id="filters"></ul>
+        </div>
       </section>
       <section class="search">
         <h3>Search</h3>
@@ -104,6 +115,6 @@
   <script src="/scripts/models/track.js"></script>
   <script src="/scripts/views/person-view.js"></script>
   <script src='/scripts/views/error-view.js'></script>
-  <script src="/scripts/controller/routes.js"></script>    
+  <script src="/scripts/controller/routes.js"></script> 
 </body>
 </html>
