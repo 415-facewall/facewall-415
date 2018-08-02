@@ -19,11 +19,16 @@ var app = app || {};
   }
 
   Track.all = [];
-  Track.loadAll = rows => Track.all = rows.map(track => new Track(track));
-  Track.fetchPlaylists = (user_id, employee_id, callback) => 
+  Track.loadAll = rows => {
+    Track.all = rows.map(track => new Track(track));
+  }
+
+  Track.fetchPlaylists = (user_id, employee_id, callback) => {
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${employee_id}/${user_id}`)
       .then(Track.loadAll)
-      .then(()=> app.Person.fetchOne(employee_id, callback))
+      .then(()=> app.Person.fetchOneForSpotify(employee_id, callback))
       .catch(errorCallback);
+  }
+    
 
 })(app)
