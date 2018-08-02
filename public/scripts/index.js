@@ -25,10 +25,10 @@ var app = app || {};
       return img_url.substring(0, 4) === 'http' ? img_url : '/images/people/' + img_url;
     });
     Handlebars.registerHelper('hasEmail', email =>{
-      return !email ? '' : `<a href="mailto:${email}">E-mail</a>`
+      return !email ? '' : ` <a href="mailto:${email}" class="icon-mail4"></a> `
     });
     Handlebars.registerHelper('hasGithub', github_profile =>{
-      return !github_profile ? '' : ` | <a href="https://github.com/${github_profile}" target="_blank">GitHub</a>`
+      return !github_profile ? '' : ` <a href="https://github.com/${github_profile}" class="icon-github" target="_blank"></a> `
     });
     let template = Handlebars.compile($(`#${templateId}`).text());
     return template(data);

@@ -8,13 +8,16 @@ var app = app || {};
   personView.populateFilters = () => {
     let companies = [];
     $('.employee').each(function () {
-      let role_company = $(this).find('.role-company');
-      for (let i = 0; i < role_company.length; i++) {
-        let val = role_company[i].textContent;
-        let company = val.substring(val.indexOf(' at ') + 4);
+      let role_company = $(this).attr('data-company');
+      let prevLocationOfComma = 0;
+      let locationOfComma = role_company.indexOf(',');
+      while(locationOfComma > 0){
+        let company = role_company.substring(prevLocationOfComma, locationOfComma);
         if (!companies.includes(company)) {
           companies.push(company);
         }
+        prevLocationOfComma = locationOfComma + 1;
+        locationOfComma = role_company.indexOf(',', locationOfComma + 1);
       }
     });
     companies.sort();
@@ -27,12 +30,11 @@ var app = app || {};
   personView.handleCompanyFilter = () => {
     $('#company-filter').on('change', function () {
       if ($(this).val()) {
-        $('.employee').hide();
-        $(`.employee[data-company*="${$(this).val()}"]`).fadeIn();
+        $('.employee').addClass('hidden');
+        $(`.employee[data-company*="${$(this).val()}"]`).removeClass('hidden');
       } else {
-        $('.employee').fadeIn();
+        $('.employee').removeClass('hidden');
       }
-      $('#company-filter').val('');
     });
   };
 
