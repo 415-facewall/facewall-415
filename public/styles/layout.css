@@ -37,7 +37,7 @@
 .top-nav ul {
   display: none;
   list-style: none;
-  background-color: #fff;
+  background-color: #edf2f4;
   color: #03312E;
   padding: 0;
   margin: 0;
@@ -173,7 +173,6 @@
 }
 
 .about-selector{
-  display: block;
   text-align: center;
   align-content: center;
 }
@@ -189,4 +188,9 @@
 .about-selector img a{
   text-decoration: none;
   color: transparent;
+}
+
+.detail-view img{
+  max-height: 40%;
+  max-width: 40%;
 }
