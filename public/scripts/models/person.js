@@ -17,7 +17,8 @@ var app = app || {};
     this.img_url = personInfo.img_url;
     this.email = personInfo.email;
     this.github_profile = personInfo.github_profile;
-    this.company_role = [personInfo.job_title + ' at ' + personInfo.name];
+    this.role = [personInfo.job_title + ' at ' + personInfo.name];
+    this.company = [personInfo.name];
   }
 
   module.getPersonArray = function () {
@@ -43,7 +44,8 @@ var app = app || {};
       if (!foundPerson) {
         Person.all.push(new Person(row));
       } else {
-        foundPerson.company_role.push(row.job_title + ' at ' + row.name);
+        foundPerson.role.push(row.job_title + ' at ' + row.name);
+        foundPerson.company.push(row.name);
       }
     });
   }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>The 415 Facewall</title>
@@ -18,13 +19,15 @@
       <td>{{album.name}}</td>
     </tr>
   </script>
-  
+
   <script id="detail-overlay-template" type="text/x-handlebars-template">
     <a class='exit' href='/'>X</a>
-    <img src='/images/people/{{img_url}}'>
+    <img src="{{locateImage img_url}}">
     <h3>{{first_name}} {{last_name}}</h3>
-    <h4>{{name}}-{{job_title}}</h4>
-    <a href='https://github.com/{{github_profile}}'class='icon-github'></a>
+    {{#each role}}
+    <p>{{this}}</p>
+    {{/each}}
+    {{{hasGithub github_profile}}}
     <a class='connectify' href='/employee/{{employee_id}}/raikenzera'>Connect Spotify</a>
     <table>
       <thead>
@@ -39,19 +42,24 @@
   </script>
 
   <script id="employee-list-template" type="text/x-handlebars-template">
-    <figure class="employee" data-company="{{name}}" data-last-name="{{last_name}}">
+    <figure class="employee" data-company="{{#each company}}{{this}},{{/each}}" data-last-name="{{last_name}}">
       <div class="employee-photo" style="background-image: url({{locateImage img_url}});"></div>
       <figcaption>
-        <p>{{first_name}} {{last_name}}</p>
-        {{#each company_role}}
-          <p>{{this}}</p>
-        {{/each}}
-        <p>{{{hasEmail email}}} {{{hasGithub github_profile}}}</p>
+        <h4>{{first_name}} {{last_name}}</h4>
+        <div class="icon-links">{{{hasEmail email}}} {{{hasGithub github_profile}}}</div>
         <p class="detail-button">
           <a href="/employee/{{employee_id}}">Details</a>
         </p>
       </figcaption>
     </figure>
+  </script>
+
+  <script id="filter-template" type="text/x-handlebars-template">
+    <li>
+      <select id="{{id}}-filter">
+        <option value="">-- Filter by Company --</option>
+      </select>
+    </li>
   </script>
 </head>
 
@@ -83,6 +91,7 @@
     <aside class="filter-search">
       <section class="filters clearfix">
         <h3>Filter</h3>
+        <ul id="filters"></ul>
       </section>
       <section class="search">
         <h3>Search</h3>
@@ -94,7 +103,6 @@
       <div id='detail-overlay'></div>
     </section>
     <section class='error-view container'>Oh boy, I sure hope this doesn't show up during a presentation...<img id='error-image' src='https://cdn.discordapp.com/attachments/161297309978591233/473905575571357706/cirDabbing.gif'></section>
-  
     <section class="about-view container">
       <div>
         <h3>About Us</h3>
@@ -111,10 +119,7 @@
       <section>
         Person 4
       </section>
-
-
     </section>
-  
   </main>
 
   <script src="/vendor/scripts/jquery-3.3.1.min.js"></script>
@@ -126,6 +131,7 @@
   <script src="/scripts/models/track.js"></script>
   <script src="/scripts/views/person-view.js"></script>
   <script src='/scripts/views/error-view.js'></script>
-  <script src="/scripts/controller/routes.js"></script>    
+  <script src="/scripts/controller/routes.js"></script>
 </body>
+
 </html>
