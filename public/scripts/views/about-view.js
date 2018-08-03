@@ -13,6 +13,8 @@ var app = app || {};
   aboutView.renderOne = (person) =>{
     aboutView.initAboutPage();
     $('.bio').hide();
+    $('.selected').removeClass('selected');
     $(`#${person}`).fadeIn();
+    $(`.${person}`).addClass('selected');
   }
 })(app)
