@@ -21,7 +21,6 @@ var app = app || {};
 
   const templateCache = {};
   module.render = (templateId, data) => {
-    console.log(templateId);
     let template = templateCache[templateId];
     if (!template) {
       Handlebars.registerHelper('locateImage', img_url => {
@@ -34,9 +33,7 @@ var app = app || {};
         return !github_profile ? '' : ` <a href="https://github.com/${github_profile}" class="icon-github" target="_blank"></a> `
       });
       template = Handlebars.compile(document.getElementById(templateId).innerText);
-      // template = Handlebars.compile($(`#${templateId}`).text());
     }
-    // let template = Handlebars.compile($(`#${templateId}`).text());
     return template(data);
   };
 

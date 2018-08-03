@@ -10,7 +10,7 @@ var app = app || {};
   }
 
   Filter.prototype.toHtml = function () {
-    // return app.render('filter-template', this)
+    return app.render('filter-template', this)
   }
 
   let rawFilterData = [{id: 'company'}];

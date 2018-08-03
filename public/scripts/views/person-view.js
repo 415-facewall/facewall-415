@@ -41,9 +41,8 @@ var app = app || {};
   personView.initIndexPage = () => {
     app.showOnly('.employee-view');
     app.Person.getAll().forEach(person => $('.employee-view').append(person.toHtml()));
-    // TO-DO: Show filters
-    // personView.populateFilters();
-    // personView.handleCompanyFilter();
+    personView.populateFilters();
+    personView.handleCompanyFilter();
   }
 
   personView.initDetailPage = person => {

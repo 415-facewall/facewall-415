@@ -30,7 +30,6 @@ app.get('/api/v1/employee',(req, res, next)=>{
 
   client.query(SQL)
     .then(result => {
-      console.log(result.rows);
       res.send(result.rows);
     })
     .catch(next);
@@ -75,7 +74,6 @@ app.get('/api/v1/employee/:employee_id/:user_id', (req, res) => {
         .set('Authorization', `Bearer ${our_access_token}`)
     )
     .then(result =>{
-      //console.log(result.body.items[1].track_name);
       let tracks = result.body.items.map(item => item.track);
       return res.send(tracks);}
     );
