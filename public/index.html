@@ -27,18 +27,8 @@
     {{#each role}}
     <p>{{this}}</p>
     {{/each}}
-    {{{hasGithub github_profile}}}
-    <a class='connectify' href='/employee/{{employee_id}}/{{spotify_profile}}'>Connect Spotify</a>
-    <table>
-      <thead>
-        <td>Title</td>
-        <td>Artist</td>
-        <td>Album</td>
-      </thead>
-      <tbody>
-
-      </tbody>
-    </table>
+    <div class="icon-links">{{{hasEmail email}}} {{{hasGithub github_profile}}} {{{hasSpotify spotify_profile}}}</div>
+    <div class="spotify-table">{{{spotifyTable spotify_profile employee_id}}}</div>
   </script>
 
   <script id="employee-list-template" type="text/x-handlebars-template">
@@ -46,7 +36,7 @@
       <div class="employee-photo" style="background-image: url({{locateImage img_url}});"></div>
       <figcaption>
         <h4>{{first_name}} {{last_name}}</h4>
-        <div class="icon-links">{{{hasEmail email}}} {{{hasGithub github_profile}}}</div>
+        <div class="icon-links">{{{hasEmail email}}} {{{hasGithub github_profile}}} {{{hasSpotify spotify_profile}}}</div>
         <p class="detail-button">
           <a href="/employee/{{employee_id}}">Details</a>
         </p>

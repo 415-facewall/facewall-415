@@ -40,6 +40,7 @@ var app = app || {};
 
   personView.initIndexPage = () => {
     app.showOnly('.employee-view');
+    $('.employee-view').empty();
     app.Person.getAll().forEach(person => $('.employee-view').append(person.toHtml()));
     personView.populateFilters();
     personView.handleCompanyFilter();
