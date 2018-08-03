@@ -184,3 +184,7 @@
     height: 15vw;
   }
 }
+
+.about-view a {
+  color: #fff;
+}
