@@ -121,6 +121,7 @@
   z-index: 3;
   top: 12.5%;
   right: 12.5%;
+  box-shadow: 10px 10px 5px 0px rgba(22,22,22,0.75);
 }
 
 .person-detail img{
@@ -141,10 +142,13 @@
   height: 200px;
   overflow-y: scroll;
   margin: 0 10px;
+  margin-top: 10px;
   float: left;
   clear: both;
   text-align: center;
   background:  radial-gradient(ellipse at center, #333333 0%, #052e2c 79%, #052e2c 100%);
+  box-shadow: inset -1px -1px 125px 5px rgba(0,0,0,0.75);
+  border: 4px inset black;
 }
 
 .person-detail tr{
@@ -196,4 +200,12 @@
 .detail-view img{
   max-height: 40%;
   max-width: 40%;
+}
+
+.about-view{
+  min-height: 500px;
+}
+
+.connectify{
+  display: none;
 }

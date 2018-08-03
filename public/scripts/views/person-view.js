@@ -7,6 +7,7 @@ var app = app || {};
 
   personView.populateFilters = () => {
     let companies = [];
+    $('#company-filter option:not(.ignore)').remove();
     $('.employee').each(function () {
       let role_company = $(this).attr('data-company');
       let prevLocationOfComma = 0;
@@ -39,6 +40,9 @@ var app = app || {};
   };
 
   personView.initIndexPage = () => {
+    $('.employee-view').empty();
+    $('.about-selector').hide();
+    $('.filters').fadeIn();
     app.showOnly('.employee-view');
     $('.employee-view').empty();
     app.Person.getAll().forEach(person => $('.employee-view').append(person.toHtml()));
@@ -47,7 +51,8 @@ var app = app || {};
   }
 
   personView.initDetailPage = person => {
-    app.showOnly('.person-detail');
+    //app.showOnly('.person-detail');
+    $('.person-detail').fadeIn();
     $('#person-detail').empty().append(person.detailToHtml());
   }
 

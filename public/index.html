@@ -38,7 +38,7 @@
         <h4>{{first_name}} {{last_name}}</h4>
         <div class="icon-links">{{{hasEmail email}}} {{{hasGithub github_profile}}} {{{hasSpotify spotify_profile}}}</div>
         <p class="detail-button">
-          <a href="/employee/{{employee_id}}">Details</a>
+          <a href="/employee/{{employee_id}}/{{spotify_profile}}">Details</a>
         </p>
       </figcaption>
     </figure>
@@ -47,7 +47,7 @@
   <script id="filter-template" type="text/x-handlebars-template">
     <li>
       <select id="{{id}}-filter">
-        <option value="">-- Filter by Company --</option>
+        <option class='ignore' value="">-- Filter by Company --</option>
       </select>
     </li>
   </script>
