@@ -164,7 +164,7 @@
 .exit{
   text-decoration: none;
   color: black;
-  padding: 1px 5px;
+  padding: 1px 6px;
   margin-top: 5px;
   margin-right: 5px;
   float: right;
@@ -188,13 +188,23 @@
   display: inline;
   width: 100px;
   height: 100px;
-  border: 1px solid transparent;
+  border: 5px solid transparent;
   border-radius: 50%;
+  transition: 200ms;
 }
 
 .about-selector img a{
   text-decoration: none;
   color: transparent;
+}
+
+.about-selector img:hover{
+  border-color: #02C3BD;
+  transition: 200ms;
+}
+
+img.selected{
+  border-color: #037171;
 }
 
 .detail-view img{
