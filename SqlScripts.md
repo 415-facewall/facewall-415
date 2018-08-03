@@ -11,7 +11,6 @@
 ## Getting Started - Create Tables.
 
 # Employee Table.
-
 CREATE TABLE IF NOT EXISTS
 employee (
   employee_id SERIAL PRIMARY KEY,
