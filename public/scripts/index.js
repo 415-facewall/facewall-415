@@ -32,6 +32,9 @@ var app = app || {};
       Handlebars.registerHelper('hasGithub', github_profile =>{
         return !github_profile ? '' : ` <a href="https://github.com/${github_profile}" class="icon-github" target="_blank"></a> `
       });
+      Handlebars.registerHelper('hasSpotify', spotify_profile =>{
+        return !spotify_profile ? '' : ` <a href="https://open.spotify.com/user/${spotify_profile}" class="icon-spotify" target="_blank"></a> `
+      });
       template = Handlebars.compile(document.getElementById(templateId).innerText);
     }
     return template(data);
