@@ -67,7 +67,8 @@ var app = app || {};
 
   Person.fetchOne = (employee_id, callback) => {
     $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/employee/${employee_id}`)
-      .then(personData => callback(new Person(personData[0])))
+      .then(loadAll)
+      .then(() => callback(all[0]))
       .catch(errorCallback);
   }
 
