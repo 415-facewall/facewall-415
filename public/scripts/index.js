@@ -35,6 +35,21 @@ var app = app || {};
       Handlebars.registerHelper('hasSpotify', spotify_profile =>{
         return !spotify_profile ? '' : ` <a href="https://open.spotify.com/user/${spotify_profile}" class="icon-spotify" target="_blank"></a> `
       });
+      Handlebars.registerHelper('spotifyTable', (spotify_profile, employee_id) => {
+        return !spotify_profile ? '' : `
+        <a class="connectify" href="/employee/${employee_id}/${spotify_profile}">Connect Spotify</a>
+        <table>
+          <thead>
+            <td>Title</td>
+            <td>Artist</td>
+            <td>Album</td>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+        `;
+      });
       template = Handlebars.compile(document.getElementById(templateId).innerText);
     }
     return template(data);
